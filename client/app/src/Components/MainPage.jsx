@@ -28,7 +28,9 @@ export default function MainPage() {
           <Link to="/register">
             <button>Zarejestruj się!</button>
           </Link>
-          <button>Zaloguj się!</button>
+          <Link to="/start">
+            <button>Zaloguj się!</button>
+          </Link>
         </div>
       </div>
     </>
