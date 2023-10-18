@@ -1,2 +1,4 @@
 ﻿# Projekt
 
+npm install
+
