@@ -1,48 +1,83 @@
 @import url('https://fonts.cdnfonts.com/css/engcomica');
 
-.formBG{
+/* body{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(109, 1, 77, 0.87) 20.8%, rgba(242,121,1,0.84) 74.4% );
+} */
+
+.logo_register_page{
+    width: 100%;
+    margin-top: 0.1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo_register_page .logo_left{
+    width: 20vw;
+    margin-left: 5vw;
+}
+
+.logo_register_page .logo_right{
+    width: 20vw;
+    margin-right: 5vw;
+}
+
+.form_element{
+    width: 100%;
+    margin-bottom: 6.5vw;
+}
+
+.form{
     font-family: 'Engcomica', sans-serif;
-    width: 40%;
+    width: 35%;
     margin-left: auto;
     margin-right: auto;
-    border: solid 0.1vw black;
+    border: solid 0.2vw black;
     border-radius: 10px;
 }
 
 h1{
     text-align: center;
     margin-top: 2vw;
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 .values{
     text-align: center;
-    margin-top: 3vw;
+    margin-top: 2vw;
 }
 
 .values label{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 }
 
 .values input{
+    background-image: linear-gradient( 108.7deg,  rgb(91, 8, 163) 11%, rgb(223, 32, 226) 88.2% );
     font-family: 'Engcomica', sans-serif;
-    font-size: 1.5vw;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
+    font-size: 1.2vw;
+    margin-top: 0.2vw;
+    margin-bottom: 0.5vw;
     border: solid 2px #000;
     border-radius: 1vw;
     padding: 0.8vw;
 }
 
-.buttons{
+.buttonsRegister{
     text-align: center;
 }
 
-.buttonRegister button{
-    width: 80%;
+.buttonsRegister button{
+    background-image: linear-gradient( 108.7deg,  rgb(91, 8, 163) 11%, rgb(223, 32, 226) 88.2% );
     font-family: 'Engcomica', sans-serif;
     margin: 2vw;
     font-size: 1.2vw;
+    border: solid 0.15vw #000;
     border-radius: 1vw;
     padding: 0.5vw;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttonsRegister button:hover{
+    font-size: 1.3vw;
+    border: solid 0.15vw #ffffff;
+    border-radius: 1.2vw;
 }
