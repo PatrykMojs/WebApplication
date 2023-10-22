@@ -36,9 +36,13 @@ export default function StartPage(){
 
                 <div className="SecondBox">
 
-                    <h1>Zagraj w Mole escape</h1>
+                    <h1>Zasady gry</h1>
 
-                    <p>Już teraz możesz przeżyć niesamowitą przygode grając w MOLE ESCAPE. Nie wachaj się graj już teraz!</p>
+                    <p>Gra Mole Escape polega na sterowaniu krecikiem klawiszami: w - góra, a - lewo, s - dół, d - prawo. </p>
+                    <p>Trzeba zbierać owoce które dają 1 punkt, donaty które dają 5 punktów, </p>
+                    <p>Natomiast gdy krecik zje kupe to straci 3 punkty.</p> 
+                    <p>Żeby nie przegrać trzeba omijać starą babcię oraz gniewnego młodego rolinka.</p>
+                    <p>W grze naliczają się punkty zdobyte punkty oraz odlicza się czas rozgrywki.</p> 
 
                 </div>
 
