@@ -65,39 +65,39 @@ export default function RegisterPage() {
                 }
             }
 
-            if (countUpperLetters === 0) {
-                alert('Błędne hasło! hasło musi miec co najmniej 1 wielka litere');
-                return
-              }
-
-            if (countLowerLetters === 0) {
-                alert('Błędne hasło! hasło musi miec co najmniej 1 małą litere')
-                return
-            }
+            // if (countUpperLetters > 0) {
+            //     alert('Błędne hasło! hasło musi miec co najmniej 1 wielka litere');
+            //     return
+            //   }
+ 
+            //  if (countLowerLetters > 0) {
+            //     alert('Błędne hasło! hasło musi miec co najmniej 1 małą litere')
+            //     return
+            // } 
           
-            if (countDigit === 0) {
-                alert('Błędne hasło! Hasło musi miec co najmniej 1 cyfrę')
-                return
-            }
+            //  if (countDigit === 0) {
+            //     alert('Błędne hasło! Hasło musi miec co najmniej 1 cyfrę')
+            //     return
+            // } 
           
-            if (countSymbols === 0) {
-                alert('Błędne hasło! Hasło musi miec co najmniej 1 znak specjalny!')
-                return
-            }
+            // if (countSymbols === 0) {
+            //     alert('Błędne hasło! Hasło musi miec co najmniej 1 znak specjalny!')
+            //     return
+            // }
+            console.log(countUpperLetters,countLowerLetters,countSymbols,countDigit)
         }
-        return true;
     }
 
     async function validateForm() {
         validateNick();
         validateLogin();
-    
-        if (!validatePassword()) {
+        validatePassword();
+        /*if (!validatePassword()) {
           return;
-        }
+        }*/
     
         try {
-          const response = await axios.post('/register', {
+          const response = await axios.post('http://localhost:3001/register', {
             Nick,
             Login,
             Password,

@@ -6,16 +6,16 @@ import axios from 'axios';
 import { useState } from 'react'; 
 
 export default function MainPage() {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginError, setLoginError] = useState('');
+  const [Login, setLogin] = useState('');
+  const [Password, setPassword] = useState('');
+  const [LoginError, setLoginError] = useState('');
   const navigate = useNavigate(); // Używamy useNavigate zamiast useHistory
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('/login', {
-        login,
-        password,
+      const response = await axios.post('http://localhost:3001/login', {
+        Login,
+        Password,
       });
 
       if (response.data.success) {
@@ -40,7 +40,7 @@ export default function MainPage() {
           <form>
             <h1>Zaloguj się!</h1>
 
-            {loginError && <p className="login-error">{loginError}</p>}
+            {LoginError && <p className="login-error">{LoginError}</p>}
 
             <div className="values">
               <label>
@@ -50,7 +50,7 @@ export default function MainPage() {
                   type="text"
                   placeholder="Login"
                   required
-                  value={login}
+                  value={Login}
                   onChange={(e) => setLogin(e.target.value)}
                 />
               </label>
@@ -62,7 +62,7 @@ export default function MainPage() {
                   type="password"
                   placeholder="Hasło"
                   required
-                  value={password}
+                  value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </label>

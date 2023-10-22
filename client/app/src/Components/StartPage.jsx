@@ -12,16 +12,6 @@ export default function StartPage(){
                     <li>
                         <img src={LOGO4} alt="LogoApp" />
                     </li>
-                    <li className="MenuElements">
-                       O nas
-                    </li>
-                    <li className="MenuElements">
-                        Produkty 
-                    </li>
-                    <li className="MenuElements">
-                        Kontakt
-                    </li>
-
                     <li>
                         <button className="ProfileButton">P</button>
                     </li>

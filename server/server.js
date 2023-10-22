@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+var cors=require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
+app.use(cors())
+const port = process.env.PORT || 3001;
 
 // Połączenie z bazą danych MongoDB
-mongoose.connect('mongodb+srv://projektgrupowy5pcz:kKpxtdXOmizAU6ll@cluster0.azfmzmy.mongodb.net/', {
+mongoose.connect('mongodb+srv://projektgrupowy5pcz:kKpxtdXOmizAU6ll@cluster0.azfmzmy.mongodb.net/users', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -19,10 +20,13 @@ db.once('open', () => {
 
 // Definicja modelu danych
 const userSchema = new mongoose.Schema({
-    Nick: String,
-    Login: String,
-    Password: String,
-});
+    Nick: {type:String, unique : true, required:true},
+    Login: {type:String, unique : true, required:true},
+    Password:{type:String,required:true},
+    Score:{type:Number, default:0},
+    About:{type:String, default:"Cześć! Jestem nowym graczem Mole Escape"}
+},{timestamps:true}
+);
 
 const User = mongoose.model('User', userSchema);
 
@@ -32,11 +36,11 @@ app.use(bodyParser.json());
 // Obsługa logowania użytkownika
 app.post('/login', async (req, res) => {
     const { Login, Password } = req.body;
-
+    console.log(Login,Password);
     try {
         // Sprawdź, czy istnieje użytkownik o podanym loginie
         const user = await User.findOne({ Login });
-
+        console.log(user);
         if (!user) {
             return res.status(401).json({ success: false, message: 'Nieprawidłowy login lub hasło' });
         }
@@ -61,15 +65,17 @@ app.post('/register', (req, res) => {
 
     // Walidacja i zapis do bazy danych
     const newUser = new User({ Nick, Login, Password });
-    newUser.save((err) => {
-        if (err) {
-            console.error('Błąd podczas zapisu użytkownika do bazy danych:', err);
-            res.status(500).json({ message: 'Błąd podczas rejestracji' });
-        } else {
-            console.log('Użytkownik zarejestrowany');
-            res.status(200).json({ message: 'Rejestracja udana' });
-        }
+    newUser.save()
+    .then(() => {
+        console.log('Użytkownik zarejestrowany');
+        return res.json({ success: true });
+        
+    })
+    .catch((err) => {
+        console.error('Błąd podczas zapisu użytkownika do bazy danych:', err);
+        return res.json({ success: false, error: err });
     });
+    
 });
 
 app.listen(port, () => {
