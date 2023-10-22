@@ -91,15 +91,19 @@ export default function RegisterPage(){
         validateLogin();
         validatePassword();
 
+        // console.log({Nick}, {Login}, {Password});
+
     }
 
     return(
         <>
             <div className="curve">
-                <div className="logo_register_page">
-                    <img class="logo_left" src={LOGO4} alt="LogoApp" />
-                    <img class="logo_right" src={LOGO4} alt="LogoApp" />
-                </div>
+                <Link to="/">
+                    <div className="logo_register_page">
+                        <img class="logo_left" src={LOGO4} alt="LogoApp" />
+                        <img class="logo_right" src={LOGO4} alt="LogoApp" />
+                    </div>     
+                </Link>
 
                 <br></br>
 
