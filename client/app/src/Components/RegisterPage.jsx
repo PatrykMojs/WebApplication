@@ -16,86 +16,44 @@ export default function RegisterPage() {
     function validateNick() {
         if (Nick.length === 0) {
           alert('Niepoprawna długość nazwy użytkownika!');
-          return;
+          return false;
         }
     
         if (Nick.trim() !== Nick) {
           alert('Nazwa użytkownika niepoprawna! Usuń spację');
-          return;
+          return false;
         }
+        return true;
       }
     
       function validateLogin() {
         if (Login.length === 0) {
           alert('Niepoprawna długość Loginu!');
-          return;
+          return false;
         }
     
         if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Login)) {
           alert('Niepoprawny E-mail!');
-          return;
+          return false;
         }
+        return true;
       }
     
       function validatePassword() {
         if (Password.length < 8) {
           alert('Niepoprawna długość Hasła. Hasło musi mieć co najmniej 8 znaków!');
-          return;
+          return false;
         }
-
-        let countUpperLetters = 0;
-        let countLowerLetters = 0;
-        let countDigit = 0;
-        let countSymbols = 0;
-
-        for(let i=0; i<Password.length; i++){
-            const Symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '[', '{', ']', '}', ':', ';', '<', '>'];
-
-            if(Symbols.includes(Password[i])){
-                countSymbols++;
-            }else if(!isNaN(Password[i]*1)){
-                countDigit++;
-            }else{
-                if(Password[i]==Password[i].toUpperCase()){
-                    countUpperLetters++;
-                }
-
-                if(Password[i]==Password[i].toLowerCase()){
-                    countLowerLetters++;
-                }
-            }
-
-            // if (countUpperLetters > 0) {
-            //     alert('Błędne hasło! hasło musi miec co najmniej 1 wielka litere');
-            //     return
-            //   }
- 
-            //  if (countLowerLetters > 0) {
-            //     alert('Błędne hasło! hasło musi miec co najmniej 1 małą litere')
-            //     return
-            // } 
-          
-            //  if (countDigit === 0) {
-            //     alert('Błędne hasło! Hasło musi miec co najmniej 1 cyfrę')
-            //     return
-            // } 
-          
-            // if (countSymbols === 0) {
-            //     alert('Błędne hasło! Hasło musi miec co najmniej 1 znak specjalny!')
-            //     return
-            // }
-            console.log(countUpperLetters,countLowerLetters,countSymbols,countDigit)
+        if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-'!@#$%^&*()_+={}:;<>']).{8,}$/g.test(Password)) {
+          alert('Hasło nie spełnia wymagań');
+          return false;
         }
-    }
+        return true;
+        }
+  
 
     async function validateForm() {
-        validateNick();
-        validateLogin();
-        validatePassword();
-        /*if (!validatePassword()) {
-          return;
-        }*/
-    
+        if(validateNick()===true&&validateLogin()===true&&validatePassword()===true){
         try {
           const response = await axios.post('http://localhost:3001/register', {
             Nick,
@@ -112,7 +70,7 @@ export default function RegisterPage() {
           setRegistrationError('Błąd podczas rejestracji. Spróbuj ponownie.');
         }
       }
-
+    }
    return (
     <>
       <div className="curve">
