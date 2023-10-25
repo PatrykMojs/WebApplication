@@ -3,12 +3,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LOGO4 from '../images/LOGO4.png';
 import DropDownList from './DropDownList/DropDownList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios'; // Dodaj ten import
 
-export default function StartPage(){
+export default function StartPage() {
+    const [openProfile, setOpenProfile] = useState(false); // Deklaracja openProfile w stanie
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const nick = searchParams.get('nick');
+    const [topPlayers, setTopPlayers] = useState([]);
 
-    const [openProfile, setOpenProfile] = useState(false);
-
+    useEffect(() => {
+        // Tutaj należy wykonać żądanie do serwera, aby pobrać najlepszych graczy
+        axios.get('http://localhost:3001/top-players')
+          .then((response) => {
+            setTopPlayers(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, []);
+ 
     return (
         <>
             <nav className="navbar">
@@ -18,7 +34,8 @@ export default function StartPage(){
                         <img src={LOGO4} alt="LogoApp" />
                     </li>
 
-                    <li className="liMenuStyle">Witaj, Użytkowniku</li>
+                    <li className="liMenuStyle">Witaj, {nick}</li>
+
 
                     <li>
                         <button className="ProfileButton" onClick={() => setOpenProfile
@@ -46,15 +63,12 @@ export default function StartPage(){
                 </div>
 
                 <div className="ThirdBox">
-
-                    <ul>
-                        <li>Uzytkownik 1</li>
-                        <li>Uzytkownik 2</li>
-                        <li>Uzytkownik 3</li>
-                        <li>Uzytkownik 4</li>
-                        <li>Uzytkownik 5</li>
-                    </ul>
-                    
+                <h1>TOP 5 Graczy</h1>
+                <ul>
+                    {topPlayers.map((player, index) => (
+                    <li key={index}>{index + 1}. {player.Nick} - Score: {player.Score}</li>
+                    ))}
+                </ul>
                 </div>
             </div>
 

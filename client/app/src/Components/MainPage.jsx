@@ -1,15 +1,27 @@
 import './MainPage.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LOGO4 from '../images/LOGO4.png';
 import axios from 'axios';
-import { useState } from 'react'; 
 
 export default function MainPage() {
   const [Login, setLogin] = useState('');
   const [Password, setPassword] = useState('');
   const [LoginError, setLoginError] = useState('');
-  const navigate = useNavigate(); // Używamy useNavigate zamiast useHistory
+  const [Nick, setNick] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Sprawdź, czy użytkownik jest zalogowany na serwerze
+    axios.get('http://localhost:3001/check-login').then((response) => {
+      if (response.data.success) {
+        const nick = response.data.nick;
+        setNick(nick);
+        navigate(`/start?nick=${nick}`);
+      }
+    });
+  }, []); // Pobierz informacje o zalogowanym użytkowniku przy pierwszym renderowaniu komponentu
+
 
   const handleLogin = async () => {
     try {
@@ -19,7 +31,9 @@ export default function MainPage() {
       });
 
       if (response.data.success) {
-        navigate('/start'); // Używamy navigate do nawigacji
+        const nick = response.data.nick;
+        setNick(nick);
+        navigate(`/start?nick=${nick}`);
       } else {
         setLoginError('Błąd logowania. Spróbuj ponownie.');
       }
@@ -74,9 +88,6 @@ export default function MainPage() {
               <button>Zarejestruj się!</button>
             </Link>
             <button onClick={handleLogin}>Zaloguj się!</button>
-            <Link to="/start">
-              <button>Przejdz</button>
-            </Link>
           </div>
         </div>
       </div>

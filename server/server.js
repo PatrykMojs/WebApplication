@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var cors=require('cors');
+var cors = require('cors');
+const session = require('express-session');
+
 const app = express();
 app.use(cors())
 const port = process.env.PORT || 3001;
@@ -20,13 +22,20 @@ db.once('open', () => {
 
 // Definicja modelu danych
 const userSchema = new mongoose.Schema({
-    Nick: {type:String, unique : true, required:true},
-    Login: {type:String, unique : true, required:true},
-    Password:{type:String,required:true},
-    Score:{type:Number, default:0},
-    About:{type:String, default:"Cześć! Jestem nowym graczem Mole Escape"}
-},{timestamps:true}
+    Nick: { type: String, unique: true, required: true },
+    Login: { type: String, unique: true, required: true },
+    Password: { type: String, required: true },
+    Score: { type: Number, default: 0 },
+    About: { type: String, default: "Cześć! Jestem nowym graczem Mole Escape" }
+}, { timestamps: true }
 );
+
+// Inicjalizacja sesji
+app.use(session({
+    secret: 'secret-key', // Sekret używany do zabezpieczenia sesji
+    resave: false,
+    saveUninitialized: true
+}));
 
 const User = mongoose.model('User', userSchema);
 
@@ -36,23 +45,22 @@ app.use(bodyParser.json());
 // Obsługa logowania użytkownika
 app.post('/login', async (req, res) => {
     const { Login, Password } = req.body;
-    console.log(Login,Password);
+    console.log(Login, Password);
     try {
-        // Sprawdź, czy istnieje użytkownik o podanym loginie
         const user = await User.findOne({ Login });
         console.log(user);
         if (!user) {
             return res.status(401).json({ success: false, message: 'Nieprawidłowy login lub hasło' });
         }
 
-        // Porównaj podane hasło z hasłem w bazie danych
         if (user.Password !== Password) {
             return res.status(401).json({ success: false, message: 'Nieprawidłowy login lub hasło' });
         }
 
-        // Logowanie powiodło się
-        res.status(200).json({ success: true, message: 'Zalogowano pomyślnie' });
+        // Zapisz informacje o zalogowanym użytkowniku w sesji
+        req.session.user = user;
 
+        res.status(200).json({ success: true, message: 'Zalogowano pomyślnie', nick: user.Nick });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: 'Błąd logowania' });
@@ -66,17 +74,48 @@ app.post('/register', (req, res) => {
     // Walidacja i zapis do bazy danych
     const newUser = new User({ Nick, Login, Password });
     newUser.save()
-    .then(() => {
-        console.log('Użytkownik zarejestrowany');
-        return res.json({ success: true });
-        
-    })
-    .catch((err) => {
-        console.error('Błąd podczas zapisu użytkownika do bazy danych:', err);
-        return res.json({ success: false, error: err });
-    });
-    
+        .then(() => {
+            console.log('Użytkownik zarejestrowany');
+            return res.json({ success: true });
+
+        })
+        .catch((err) => {
+            console.error('Błąd podczas zapisu użytkownika do bazy danych:', err);
+            return res.json({ success: false, error: err });
+        });
+
 });
+
+app.get('/check-login', (req, res) => {
+    if (req.session.user) {
+        res.json({ success: true, nick: req.session.user.Nick });
+    } else {
+        res.json({ success: false });
+    }
+});
+
+app.get('/logout', (req, res) => {
+    // Zniszcz sesję (wyloguj użytkownika)
+    req.session.destroy((err) => {
+        if (err) {
+            console.error(err);
+            res.json({ success: false });
+        } else {
+            res.json({ success: true });
+        }
+    });
+});
+
+app.get('/top-players', async (req, res) => {
+    try {
+        const topPlayers = await User.find({}, 'Nick Score').sort({ Score: -1 }).limit(5);
+        res.json(topPlayers);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Błąd podczas pobierania danych o najlepszych graczach' });
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Serwer nasłuchuje na porcie ${port}`);
