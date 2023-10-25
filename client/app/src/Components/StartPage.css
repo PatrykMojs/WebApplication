@@ -44,6 +44,12 @@ body{
 
 }
 
+.liMenuStyle{
+  font-size: 3vw;
+  margin-top: 0.5vw;
+  color: #20C763;
+}
+
 .ProfileButton{
     background-image: linear-gradient( 108.7deg,  rgb(91, 8, 163) 11%, rgb(223, 32, 226) 88.2% );
     font-family: 'Engcomica', sans-serif;

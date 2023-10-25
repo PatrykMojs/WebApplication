@@ -2,8 +2,13 @@ import './StartPage.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LOGO4 from '../images/LOGO4.png';
+import DropDownList from './DropDownList/DropDownList';
+import { useState } from 'react';
 
 export default function StartPage(){
+
+    const [openProfile, setOpenProfile] = useState(false);
+
     return (
         <>
             <nav className="navbar">
@@ -12,8 +17,12 @@ export default function StartPage(){
                     <li>
                         <img src={LOGO4} alt="LogoApp" />
                     </li>
+
+                    <li className="liMenuStyle">Witaj, Użytkowniku</li>
+
                     <li>
-                        <button className="ProfileButton">P</button>
+                        <button className="ProfileButton" onClick={() => setOpenProfile
+                            ((prev)=>!prev)}>P</button>
                     </li>
                 </ul>
             </nav>
@@ -48,6 +57,10 @@ export default function StartPage(){
                     
                 </div>
             </div>
+
+            {
+                openProfile && <DropDownList/>
+            }
 
         </>
     );

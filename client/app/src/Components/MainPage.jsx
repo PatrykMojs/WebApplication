@@ -44,7 +44,7 @@ export default function MainPage() {
 
             <div className="values">
               <label>
-                Login:
+                {/* Email: */}
                 <br />
                 <input
                   type="text"
@@ -56,7 +56,7 @@ export default function MainPage() {
               </label>
               <br />
               <label>
-                Hasło:
+                {/* Hasło: */}
                 <br />
                 <input
                   type="password"
@@ -70,8 +70,13 @@ export default function MainPage() {
           </form>
 
           <div className="buttons">
-            <Link to="/register">Zarejestruj się!</Link>
+            <Link to="/register">
+              <button>Zarejestruj się!</button>
+            </Link>
             <button onClick={handleLogin}>Zaloguj się!</button>
+            <Link to="/start">
+              <button>Przejdz</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -92,7 +92,7 @@ export default function RegisterPage() {
 
               <div className="values">
                 <label>
-                  Nick:
+                  {/* Nick: */}
                   <br />
                   <input
                     name="nick"
@@ -104,19 +104,19 @@ export default function RegisterPage() {
                 </label>
                 <br />
                 <label>
-                  Login:
+                  {/* Email: */}
                   <br />
                   <input
                     name="login"
                     type="email"
-                    placeholder="Login"
+                    placeholder="Email"
                     required
                     onChange={(e) => setLogin(e.target.value)}
                   />
                 </label>
                 <br />
                 <label>
-                  Hasło:
+                  {/* Hasło: */}
                   <br />
                   <input
                     name="password"
@@ -131,7 +131,7 @@ export default function RegisterPage() {
 
             <div className="buttonsRegister">
               <Link to="/" onClick={validateForm}>
-                Zarejestruj się!
+                <button>Zarejestruj się!</button>
               </Link>
               <Link to="/">
                 <button>Powrót</button>
