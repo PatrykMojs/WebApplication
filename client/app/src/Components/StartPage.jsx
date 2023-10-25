@@ -66,7 +66,7 @@ export default function StartPage() {
                 <h1>TOP 5 Graczy</h1>
                 <ul>
                     {topPlayers.map((player, index) => (
-                    <li key={index}>{index + 1}. {player.Nick} - Score: {player.Score}</li>
+                    <li key={index}>{index + 1}. {player.Nick} - Wynik: {player.Score}</li>
                     ))}
                 </ul>
                 </div>

@@ -62,7 +62,7 @@ export default function MainPage() {
                 <br />
                 <input
                   type="text"
-                  placeholder="Login"
+                  placeholder="Email"
                   required
                   value={Login}
                   onChange={(e) => setLogin(e.target.value)}
