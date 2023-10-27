@@ -85,7 +85,26 @@ app.post('/register', (req, res) => {
         });
 
 });
-
+app.post('/updateAbout/:nick', (req, res) => {
+    const nick = req.params.nick;
+    const inputValue = req.body.inputValue;
+    User.findOneAndUpdate(
+        { Nick: nick },
+        { $set: { About: inputValue } },
+      )
+        .then((doc) => {
+          if (!doc) {
+            res.status(404).json({ error: 'Nie znaleziono dokumentu do zaktualizowania' });
+          } else {
+            console.log("Zmieniono opis");
+            res.json({ message: 'Dokument zaktualizowany pomyślnie' });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).json({ error: 'Błąd podczas aktualizacji dokumentu' });
+        });
+    });
 app.get('/check-login', (req, res) => {
     if (req.session.user) {
         res.json({ success: true, nick: req.session.user.Nick });
@@ -115,7 +134,22 @@ app.get('/top-players', async (req, res) => {
         res.status(500).json({ success: false, message: 'Błąd podczas pobierania danych o najlepszych graczach' });
     }
 });
-
+app.get('/getAbout/:nick', (req, res) => {
+    const nick = req.params.nick;
+    User.findOne({ Nick: nick })
+      .then((user) => {
+        if (user) {
+          res.json({ about: user.About });
+        } else {
+          res.status(404).json({ error: 'Użytkownik nie znaleziony' });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: 'Błąd podczas pobierania informacji o polu opisu' });
+      });
+  });
+  
 
 app.listen(port, () => {
     console.log(`Serwer nasłuchuje na porcie ${port}`);

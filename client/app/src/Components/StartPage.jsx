@@ -15,7 +15,23 @@ export default function StartPage() {
     const nick = searchParams.get('nick');
     const [topPlayers, setTopPlayers] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [about, setAbout] = useState('');
+    //---------------> Logout <----------------------------------
+    const handleLogout = async () => {
+        try {
+          // Wyślij żądanie wylogowania na serwer
+          const response = await axios.get('http://localhost:3001/logout');
+    
+          if (response.data.success) {
+            // Jeśli wylogowanie powiodło się, przekieruj użytkownika na stronę MainPage
+            window.location.href = '/';
+          } else {
+            console.log('Błąd wylogowania');
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
     //-------------> Burger Menu <-----------------------------
     const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
     const [menu_class, setMenuClass] = useState("menu hidden");
@@ -47,7 +63,16 @@ export default function StartPage() {
             console.error(error);
           });
       }, []);
- 
+
+      useEffect(() => {
+        axios.get(`http://localhost:3001/getAbout/${nick}`)
+          .then((response) => {
+            setAbout(response.data.about);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, [nick]);
     return (
         <>
             <nav className="navbar">
@@ -57,7 +82,7 @@ export default function StartPage() {
                         <img src={LOGO4} alt="LogoApp" />
                     </li>
 
-                    <li className="liMenuStyle">Witaj, {nick}</li>
+                    <li className="liMenuStyle">Witaj w Mole Escape</li>
 
 
                     <li className="BurgerMenu">
@@ -77,7 +102,7 @@ export default function StartPage() {
                             <div className="firstRow">
 
                                 <div className="NickNameProfile">
-                                    <p>Patryk</p>
+                                    <p>{nick}</p>
                                 </div>
 
                                 <button className="EditButton" onClick={togglePopup}>Edytuj</button>
@@ -85,11 +110,11 @@ export default function StartPage() {
                             </div>
 
                             <div className="secondRow">
-                                <p>Cześć mam na imię Patryk. Jestem bossem w tej grze xd.</p>
+                                <p>{about}</p>
                             </div>
 
                             <div className="thirdRow">
-                                <button>Wyloguj się!</button>
+                                <button onClick={handleLogout}>Wyloguj się!</button>
                             </div>
 
                         </div>
@@ -132,10 +157,10 @@ export default function StartPage() {
 
             {isOpen && <Popup content={
                 <>
-                    <button>Zapisz</button>
                     <button onClick={togglePopup}>Zamknij</button>
                 </>}
                 handleClose={togglePopup}
+                nick={nick}
             />}
 
         </>
