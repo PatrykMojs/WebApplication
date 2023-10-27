@@ -9,9 +9,11 @@ const Popup = props => {
   };
     const updateAbout = () => {
       const nick = props.nick;
+      if(inputValue.length!=0){
       axios.post(`http://localhost:3001/updateAbout/${nick}`, { inputValue })
         .then(response => {props.handleClose()})
         .catch(error => {});
+      }
     };
   
   return (
