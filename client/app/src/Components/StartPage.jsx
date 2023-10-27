@@ -6,6 +6,7 @@ import DropDownList from './DropDownList/DropDownList';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios'; // Dodaj ten import
+import Popup from './Popup';
 
 export default function StartPage() {
     const [openProfile, setOpenProfile] = useState(false); // Deklaracja openProfile w stanie
@@ -13,6 +14,28 @@ export default function StartPage() {
     const searchParams = new URLSearchParams(location.search);
     const nick = searchParams.get('nick');
     const [topPlayers, setTopPlayers] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+    //-------------> Burger Menu <-----------------------------
+    const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
+    const [menu_class, setMenuClass] = useState("menu hidden");
+    const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+    const updateMenu = () =>{
+        if(!isMenuClicked){
+            setBurgerClass("burger-bar clicked");
+            setMenuClass("menu visible");
+        }else{
+            setBurgerClass("burger-bar unclicked");
+            setMenuClass("menu hidden");
+        }
+        setIsMenuClicked(!isMenuClicked);
+    }
+
+    //--------------> Popup <-------------------------------------
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
 
     useEffect(() => {
         // Tutaj należy wykonać żądanie do serwera, aby pobrać najlepszych graczy
@@ -37,9 +60,40 @@ export default function StartPage() {
                     <li className="liMenuStyle">Witaj, {nick}</li>
 
 
-                    <li>
-                        <button className="ProfileButton" onClick={() => setOpenProfile
-                            ((prev)=>!prev)}>P</button>
+                    <li className="BurgerMenu">
+                        <div className="burgerStyle">
+                            <nav>
+                                <div className="burger-menu" onClick={updateMenu}>
+                                    <div className={burger_class}></div>
+                                    <div className={burger_class}></div>
+                                    <div className={burger_class}></div>
+                                </div>
+
+                            </nav>
+                        </div>
+
+                        <div className={menu_class}>
+
+                            <div className="firstRow">
+
+                                <div className="NickNameProfile">
+                                    <p>Patryk</p>
+                                </div>
+
+                                <button className="EditButton" onClick={togglePopup}>Edytuj</button>
+
+                            </div>
+
+                            <div className="secondRow">
+                                <p>Cześć mam na imię Patryk. Jestem bossem w tej grze xd.</p>
+                            </div>
+
+                            <div className="thirdRow">
+                                <button>Wyloguj się!</button>
+                            </div>
+
+                        </div>
+
                     </li>
                 </ul>
             </nav>
@@ -75,6 +129,14 @@ export default function StartPage() {
             {
                 openProfile && <DropDownList/>
             }
+
+            {isOpen && <Popup content={
+                <>
+                    <button>Zapisz</button>
+                    <button onClick={togglePopup}>Zamknij</button>
+                </>}
+                handleClose={togglePopup}
+            />}
 
         </>
     );

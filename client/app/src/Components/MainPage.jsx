@@ -11,16 +11,16 @@ export default function MainPage() {
   const [Nick, setNick] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Sprawdź, czy użytkownik jest zalogowany na serwerze
-    axios.get('http://localhost:3001/check-login').then((response) => {
-      if (response.data.success) {
-        const nick = response.data.nick;
-        setNick(nick);
-        navigate(`/start?nick=${nick}`);
-      }
-    });
-  }, []); // Pobierz informacje o zalogowanym użytkowniku przy pierwszym renderowaniu komponentu
+  // useEffect(() => {
+  //   // Sprawdź, czy użytkownik jest zalogowany na serwerze
+  //   axios.get('http://localhost:3001/check-login').then((response) => {
+  //     if (response.data.success) {
+  //       const nick = response.data.nick;
+  //       setNick(nick);
+  //       navigate(`/start?nick=${nick}`);
+  //     }
+  //   });
+  // }, []); // Pobierz informacje o zalogowanym użytkowniku przy pierwszym renderowaniu komponentu
 
 
   const handleLogin = async () => {
@@ -88,6 +88,10 @@ export default function MainPage() {
               <button>Zarejestruj się!</button>
             </Link>
             <button onClick={handleLogin}>Zaloguj się!</button>
+
+            {/* <Link to="/start">
+              <button>start!</button>
+            </Link> */}
           </div>
         </div>
       </div>

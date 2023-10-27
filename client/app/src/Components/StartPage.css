@@ -1,4 +1,7 @@
 @import url("https://fonts.cdnfonts.com/css/engcomica");
+@import url("https://fonts.googleapis.com");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Butcherman&display=swap");
 
 body {
   width: 100%;
@@ -177,4 +180,139 @@ body {
   counter-increment: player;
   margin-right: 0.5vw;
   font-weight: bold;
+}
+
+
+/* Hamburger menu */
+
+.burger-menu{
+  height: 100%;
+  width: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 0.5vw;
+  margin-top: 0.2vw;
+}
+
+.burger-bar{
+  width: 4em;
+  height: 0.5vw;
+  margin: 0.5vw auto;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.menu{
+  width: 25%;
+  height: 30vw;
+  background-color: #20c763;
+  position: absolute;
+  top: 5vw;
+  left: 75%;
+  /* z-index: 1; */
+  border-radius: 1vw;
+}
+
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: inherit;
+}
+
+/* Animacja przycisku */
+.burger-bar.clicked:nth-child(1){
+  transform: rotate(45deg) translate(1em, 1.5em);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(2){
+  transform: scale(0.1);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(3){
+  transform: rotate(135deg) translate(-0.5em, 1em);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.unclicked{
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: ease-out 0.2s;
+}
+
+
+/* Menu oraz elementy znajdujące się w nim */
+/* Pierwszy wiersz w menu */
+.firstRow{    
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2vw;
+}
+
+.NickNameProfile{
+  width: 40%;
+  height: 5vw;
+  background-color: #000;
+  border-radius: 1.5vw;
+  
+}
+
+.NickNameProfile p{
+  margin-top: 1.5vw;
+  font-size: 2.5vw;
+}
+
+.EditButton{
+  width: 30%;
+  height: 2vw;
+  margin-top: 2vw;
+  border: 0.2vw solid #000;
+  border-radius: 1vw;
+  background-color: #fff;
+  font-family: 'Engcomica', sans-serif;
+  cursor: pointer;
+}
+
+/* Drugi wiersz w menu */
+.secondRow{
+  width: 100%;
+  margin-top: 5vw;
+}
+
+.secondRow p{
+  background-color: #000;
+  width: 80%;
+  font-size: 2vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5vw;
+  border-radius: 2vw;
+}
+
+/* Trzeci wiersz w menu */
+
+.thirdRow{
+  width: 100%;
+  margin-top: 2.5vw;
+}
+
+.thirdRow button{
+  font-family: 'Engcomica', sans-serif;
+  /* font-family: 'Righteous', sans-serif; */
+  /* font-family: 'Sedgwick Ave Display', cursive; */
+  /* font-family: 'Butcherman'; */
+  width: 70%;
+  height: 4vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5vw;
+  border: 0.2vw solid #000;
+  border-radius: 2vw;
 }
