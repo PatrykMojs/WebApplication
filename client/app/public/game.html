@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRA</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <body>
+      <div id="header">
+        <div id="menu">
+          <button id="new-game" class="comic-button">Nowa gra</button>
+          <a class="comic-button" href="/start?nick=" id="homeLink">
+            <img class="button-image-2" src="IMAGES\\IKONY\\home.svg" />
+          </a>
+          <div id="user-info">
+            <button class="comic-button" onclick="pauseGame()">
+              <img class="button-image" src="IMAGES\\IKONY\\pause.svg" />
+            </button>
+            <div id="welcome-message">
+              Witaj, <span id="user-nick">nick użytkownika zalogowanego</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    <img
+      id="gif1"
+      src="IMAGES\GIF\sun.gif"
+      style="
+        position: fixed;
+        bottom: 620px;
+        right: 50px;
+        width: 200px;
+        height: 200px;
+      "
+    />
+    <img
+      id="gif2"
+      src="IMAGES\GIF\oldmen1.gif"
+      style="
+        position: fixed;
+        bottom: 665px;
+        right: 100px;
+        width: 100px;
+        height: 100px;
+      "
+    />
+
+    <canvas id="canvas1"></canvas>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
+      var userNick = getParameterByName("nick");
+
+      if (userNick) {
+        document.getElementById("user-nick").textContent = userNick;
+        localStorage.setItem("userNick", userNick);
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var homeLink = document.getElementById("homeLink");
+        var userNick = localStorage.getItem("userNick");
+
+        if (userNick) {
+          homeLink.href = "/start?nick=" + userNick;
+        }
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -85,10 +85,10 @@ body {
 
 .inlineBox {
   width: 100%;
-  margin-top: 10vw;
-  margin-bottom: 8.6vw;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 10vw;
+  margin-bottom: 8.6vw;
 }
 
 .FirstBox {
@@ -97,16 +97,24 @@ body {
   background-color: #333;
   border: solid 0.2vw #fff;
   border-radius: 2vw;
-  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
   transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
 .FirstBox:hover {
   -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.FirstBox a {
+  text-decoration: none;
+  color: #000;
 }
 
 .FirstBox img {
@@ -182,10 +190,9 @@ body {
   font-weight: bold;
 }
 
-
 /* Hamburger menu */
 
-.burger-menu{
+.burger-menu {
   height: 100%;
   width: 5em;
   display: flex;
@@ -197,7 +204,7 @@ body {
   margin-top: 0.2vw;
 }
 
-.burger-bar{
+.burger-bar {
   width: 4em;
   height: 0.5vw;
   margin: 0.5vw auto;
@@ -205,7 +212,7 @@ body {
   border-radius: 0.5em;
 }
 
-.menu{
+.menu {
   width: 25%;
   height: 30vw;
   background-color: #20c763;
@@ -216,77 +223,75 @@ body {
   border-radius: 1vw;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.visible{
+.visible {
   display: inherit;
 }
 
 /* Animacja przycisku */
-.burger-bar.clicked:nth-child(1){
+.burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(1em, 1.5em);
   transition: ease-out 0.2s;
 }
 
-.burger-bar.clicked:nth-child(2){
+.burger-bar.clicked:nth-child(2) {
   transform: scale(0.1);
   transition: ease-out 0.2s;
 }
 
-.burger-bar.clicked:nth-child(3){
+.burger-bar.clicked:nth-child(3) {
   transform: rotate(135deg) translate(-0.5em, 1em);
   transition: ease-out 0.2s;
 }
 
-.burger-bar.unclicked{
+.burger-bar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: ease-out 0.2s;
 }
 
-
 /* Menu oraz elementy znajdujące się w nim */
 /* Pierwszy wiersz w menu */
-.firstRow{    
+.firstRow {
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin-top: 2vw;
 }
 
-.NickNameProfile{
+.NickNameProfile {
   width: 40%;
   height: 5vw;
   background-color: #000;
   border-radius: 1.5vw;
-  
 }
 
-.NickNameProfile p{
+.NickNameProfile p {
   margin-top: 1.5vw;
   font-size: 2.5vw;
 }
 
-.EditButton{
+.EditButton {
   width: 30%;
   height: 2vw;
   margin-top: 2vw;
   border: 0.2vw solid #000;
   border-radius: 1vw;
   background-color: #fff;
-  font-family: 'Engcomica', sans-serif;
+  font-family: "Engcomica", sans-serif;
   cursor: pointer;
 }
 
 /* Drugi wiersz w menu */
-.secondRow{
+.secondRow {
   width: 100%;
   margin-top: 5vw;
 }
 
-.secondRow p{
+.secondRow p {
   background-color: #000;
   width: 80%;
   font-size: 2vw;
@@ -298,13 +303,13 @@ body {
 
 /* Trzeci wiersz w menu */
 
-.thirdRow{
+.thirdRow {
   width: 100%;
   margin-top: 2.5vw;
 }
 
-.thirdRow button{
-  font-family: 'Engcomica', sans-serif;
+.thirdRow button {
+  font-family: "Engcomica", sans-serif;
   /* font-family: 'Righteous', sans-serif; */
   /* font-family: 'Sedgwick Ave Display', cursive; */
   /* font-family: 'Butcherman'; */

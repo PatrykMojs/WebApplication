@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url(IMAGES/background/20252.jpg);
+  background-size: 100vw 100vh;
+}
+
+#header {
+  background-color: rgba(0, 128, 0, 0);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comic-button {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #3e8e41;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+}
+
+.comic-button img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.comic-button:hover {
+  background-color: #fff;
+  color: #3e8e41;
+  border: 2px solid #3e8e41;
+  box-shadow: 5px 5px 0px #3e8e41;
+}
+
+.comic-button:active {
+  background-color: #fff;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.comic-button:hover .button-image {
+  background-color: #fff;
+  color: #3e8e41;
+  content: url(IMAGES/IKONY/pause2.svg);
+}
+
+.comic-button:hover .button-image-2 {
+  background-color: #fff;
+  color: #3e8e41;
+  content: url(IMAGES/IKONY/home_g.svg);
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+}
+
+#welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-right: 1000px;
+}
+
+#canvas1 {
+  width: 800px;
+  height: 500px;
+  border: 4px solid black;
+  background-color: greenyellow;
+  margin-top: 95px;
+}

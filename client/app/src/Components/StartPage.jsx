@@ -1,29 +1,34 @@
 import './StartPage.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import LOGO4 from '../images/LOGO4.png';
 import DropDownList from './DropDownList/DropDownList';
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios'; // Dodaj ten import
 import Popup from './Popup';
 
+const nick = localStorage.getItem("userNick");
+
 export default function StartPage() {
-    const [openProfile, setOpenProfile] = useState(false); // Deklaracja openProfile w stanie
+    const [openProfile, setOpenProfile] = useState(false);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const nick = searchParams.get('nick');
     const [topPlayers, setTopPlayers] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [about, setAbout] = useState('');
+
+    const navigate = useNavigate();
+
+    function przejdzDoStartPage() {
+      navigate('/start');
+    };
+
     //---------------> Logout <----------------------------------
     const handleLogout = async () => {
         try {
-          // Wyślij żądanie wylogowania na serwer
           const response = await axios.get('http://localhost:3001/logout');
     
           if (response.data.success) {
-            // Jeśli wylogowanie powiodło się, przekieruj użytkownika na stronę MainPage
             window.location.href = '/';
           } else {
             console.log('Błąd wylogowania');
@@ -32,6 +37,7 @@ export default function StartPage() {
           console.error(error);
         }
       };
+
     //-------------> Burger Menu <-----------------------------
     const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
     const [menu_class, setMenuClass] = useState("menu hidden");
@@ -54,7 +60,6 @@ export default function StartPage() {
     }
 
     useEffect(() => {
-        // Tutaj należy wykonać żądanie do serwera, aby pobrać najlepszych graczy
         axios.get('http://localhost:3001/top-players')
           .then((response) => {
             setTopPlayers(response.data);
@@ -73,6 +78,17 @@ export default function StartPage() {
             console.error(error);
           });
       }, [nick]);
+
+      useEffect(() => {
+        axios.get(`http://localhost:3001/getAbout/${nick}`)
+            .then((response) => {
+                setAbout(response.data.about);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [nick]);
+
     return (
         <>
             <nav className="navbar">
@@ -105,7 +121,7 @@ export default function StartPage() {
                                     <p>{nick}</p>
                                 </div>
 
-                                <button className="EditButton" onClick={togglePopup}>Edytuj</button>
+                                <button className="EditButton" onClick={togglePopup}>Edytuj opis</button>
 
                             </div>
 
@@ -124,10 +140,14 @@ export default function StartPage() {
             </nav>
 
             <div className="inlineBox">
-                <div className="FirstBox">
+            <div className="FirstBox">
+                <a href={`/game.html?nick=${nick}`}>
                     <img src={LOGO4} alt="LogoApp" />
                     <p>Zagraj już teraz!</p>
-                </div>
+                </a>
+            </div>
+
+
 
                 <div className="SecondBox">
 
