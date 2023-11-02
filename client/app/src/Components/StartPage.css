@@ -4,12 +4,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Butcherman&display=swap");
 
 body {
-  width: 100%;
-  background-image: linear-gradient(
-    108.7deg,
-    rgb(223, 32, 226) 11%,
-    rgb(91, 8, 163) 88.2%
-  );
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/20252.jpg);
+  background-size: 100vw 100vh;
   margin: none;
   padding: none;
   font-family: "Engcomica", sans-serif;
@@ -51,12 +49,15 @@ body {
 }
 
 .liMenuStyle {
-  font-size: 3vw;
+  font-size: 5vw;
   margin-top: 0.5vw;
-  color: #20c763;
+  -webkit-text-stroke-width: 0.2vw;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+  cursor: default;
 }
 
-.ProfileButton {
+/* .ProfileButton {
   background-image: linear-gradient(
     108.7deg,
     rgb(91, 8, 163) 11%,
@@ -81,7 +82,7 @@ body {
   background-position: right center;
   color: #fff;
   text-decoration: none;
-}
+} */
 
 .inlineBox {
   width: 100%;
@@ -94,7 +95,7 @@ body {
 .FirstBox {
   width: 25vw;
   height: 25vw;
-  background-color: #333;
+  background-color: #fff;
   border: solid 0.2vw #fff;
   border-radius: 2vw;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
@@ -114,7 +115,6 @@ body {
 
 .FirstBox a {
   text-decoration: none;
-  color: #000;
 }
 
 .FirstBox img {
@@ -124,21 +124,30 @@ body {
 }
 
 .FirstBox img:hover {
-  transform: rotate(360deg);
+  /* transform: rotate(360deg); */
+  transform: rotate(20deg);
 }
 
 .FirstBox p {
   width: 100%;
   margin-top: 2vw;
   text-align: center;
-  font-size: 2vw;
+  font-size: 2.5vw;
   cursor: pointer;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 0.5);
+  transition: all 2s ease-in-out;
+}
+
+.FirstBox p:hover{
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
 }
 
 .SecondBox {
   width: 25vw;
   height: 25vw;
-  background-color: #333;
+  background-color: #fff;
   border: solid 0.2vw #fff;
   border-radius: 2vw;
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
@@ -151,6 +160,17 @@ body {
   -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.SecondBox h2{
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+}
+
+.optionsGame{
+  text-align: center;
+  font-size: 1.1vw;
 }
 
 .ThirdBox {
@@ -169,6 +189,12 @@ body {
   -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.ThirdBox h2{
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
 }
 
 .ThirdBox ul {
@@ -205,7 +231,7 @@ body {
 }
 
 .burger-bar {
-  width: 4em;
+  width: 4vw;
   height: 0.5vw;
   margin: 0.5vw auto;
   background-color: #fff;
@@ -214,7 +240,7 @@ body {
 
 .menu {
   width: 25%;
-  height: 30vw;
+  height: 35vw;
   background-color: #20c763;
   position: absolute;
   top: 5vw;
@@ -233,7 +259,7 @@ body {
 
 /* Animacja przycisku */
 .burger-bar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(1em, 1.5em);
+  transform: rotate(45deg) translate(1vw, 1.5vw);
   transition: ease-out 0.2s;
 }
 
@@ -243,7 +269,7 @@ body {
 }
 
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-0.5em, 1em);
+  transform: rotate(135deg) translate(-0.6vw, 1vw);
   transition: ease-out 0.2s;
 }
 
@@ -257,38 +283,31 @@ body {
 /* Pierwszy wiersz w menu */
 .firstRow {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
   margin-top: 2vw;
 }
 
 .NickNameProfile {
-  width: 40%;
+  width: 90%;
   height: 5vw;
   background-color: #000;
   border-radius: 1.5vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.NickNameProfile p {
-  margin-top: 1.5vw;
+.NickNameProfileParagraph{
+  color: #fff;
+  padding: 1.5vw 0;
   font-size: 2.5vw;
-}
-
-.EditButton {
-  width: 30%;
-  height: 2vw;
-  margin-top: 2vw;
-  border: 0.2vw solid #000;
-  border-radius: 1vw;
-  background-color: #fff;
-  font-family: "Engcomica", sans-serif;
-  cursor: pointer;
 }
 
 /* Drugi wiersz w menu */
 .secondRow {
   width: 100%;
-  margin-top: 5vw;
+}
+
+.secondRow h3{
+  font-size: 2vw;
 }
 
 .secondRow p {
@@ -305,19 +324,30 @@ body {
 
 .thirdRow {
   width: 100%;
-  margin-top: 2.5vw;
+  margin-top: 4vw;
+  display: flex;
+  justify-content: space-around;
 }
 
-.thirdRow button {
+.LogOutButton{
   font-family: "Engcomica", sans-serif;
   /* font-family: 'Righteous', sans-serif; */
   /* font-family: 'Sedgwick Ave Display', cursive; */
   /* font-family: 'Butcherman'; */
-  width: 70%;
+  width: 40%;
   height: 4vw;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 1.5vw;
   border: 0.2vw solid #000;
   border-radius: 2vw;
+}
+
+.EditButton {
+  font-family: "Engcomica", sans-serif;
+  font-size: 1.5vw;
+  width: 40%;
+  height: 4vw;
+  border: 0.2vw solid #000;
+  border-radius: 2vw;
+  background-color: #fff;
+  cursor: pointer;
 }

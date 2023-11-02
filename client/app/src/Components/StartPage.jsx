@@ -118,19 +118,19 @@ export default function StartPage() {
                             <div className="firstRow">
 
                                 <div className="NickNameProfile">
-                                    <p>{nick}</p>
+                                    <p className="NickNameProfileParagraph">{nick}</p>
                                 </div>
-
-                                <button className="EditButton" onClick={togglePopup}>Edytuj opis</button>
 
                             </div>
 
                             <div className="secondRow">
+                                <h3>Opis:</h3>
                                 <p>{about}</p>
                             </div>
 
                             <div className="thirdRow">
-                                <button onClick={handleLogout}>Wyloguj się!</button>
+                                <button className="EditButton" onClick={togglePopup}>Edytuj opis</button>
+                                <button className="LogOutButton" onClick={handleLogout}>Wyloguj się!</button>
                             </div>
 
                         </div>
@@ -140,29 +140,31 @@ export default function StartPage() {
             </nav>
 
             <div className="inlineBox">
-            <div className="FirstBox">
-                <a href={`/game.html?nick=${nick}`}>
-                    <img src={LOGO4} alt="LogoApp" />
-                    <p>Zagraj już teraz!</p>
-                </a>
-            </div>
+                <div className="FirstBox">
+                    <a href={`/game.html?nick=${nick}`}>
+                        <img src={LOGO4} alt="LogoApp" />
+                        <p>Zagraj już teraz!</p>
+                    </a>
+                </div>
 
 
 
                 <div className="SecondBox">
 
-                    <h1>Zasady gry</h1>
+                    <h2>Zasady gry</h2>
 
-                    <p>Gra Mole Escape polega na sterowaniu krecikiem klawiszami: w - góra, a - lewo, s - dół, d - prawo. </p>
-                    <p>Trzeba zbierać owoce które dają 1 punkt, donaty które dają 5 punktów, </p>
-                    <p>Natomiast gdy krecik zje kupe to straci 3 punkty.</p> 
-                    <p>Żeby nie przegrać trzeba omijać starą babcię oraz gniewnego młodego rolinka.</p>
-                    <p>W grze naliczają się punkty zdobyte punkty oraz odlicza się czas rozgrywki.</p> 
+                    <div className="optionsGame">
+                        <p>Gra Mole Escape polega na sterowaniu krecikiem klawiszami: w - góra, a - lewo, s - dół, d - prawo. </p>
+                        <p>Trzeba zbierać owoce które dają 1 punkt, donaty które dają 5 punktów, </p>
+                        <p>Natomiast gdy krecik zje kupe to straci 3 punkty.</p> 
+                        <p>Żeby nie przegrać trzeba omijać starą babcię oraz gniewnego młodego rolinka.</p>
+                        <p>W grze naliczają się punkty zdobyte punkty oraz odlicza się czas rozgrywki.</p>
+                    </div> 
 
                 </div>
 
                 <div className="ThirdBox">
-                <h1>TOP 5 Graczy</h1>
+                <h2>TOP 5 Graczy</h2>
                 <ul>
                     {topPlayers.map((player, index) => (
                     <li key={index}>{index + 1}. {player.Nick} - Wynik: {player.Score}</li>
@@ -175,10 +177,7 @@ export default function StartPage() {
                 openProfile && <DropDownList/>
             }
 
-            {isOpen && <Popup content={
-                <>
-                    <button onClick={togglePopup}>Zamknij</button>
-                </>}
+            {isOpen && <Popup 
                 handleClose={togglePopup}
                 nick={nick}
             />}

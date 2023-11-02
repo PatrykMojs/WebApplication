@@ -47,10 +47,15 @@ const Popup = props => {
         <div className="popup-box">
             <div className="box">
                 <span className="close-icon" onClick={props.handleClose}>x</span>
-                <h2>Edycja profilu!</h2>
+                <h2>Edytuj opis!</h2>
 
                 <input type="text" className="inputAboutProfile" placeholder="Dodaj opis o sobie" value={inputValue} onChange={handleInputChange} /><br></br>
-                <button onClick={updateAbout}>Zaktualizuj</button>
+                
+                <div className="popupButtons">
+                    <button onClick={updateAbout}>Zaktualizuj</button>
+                    <button onClick={props.handleClose}>Zamknij</button>
+                </div>
+
                 {props.content}
             </div>
         </div>
