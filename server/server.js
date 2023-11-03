@@ -149,6 +149,23 @@ app.get('/getAbout/:nick', (req, res) => {
         res.status(500).json({ error: 'Błąd podczas pobierania informacji o polu opisu' });
       });
   });
+  app.post('/submit-score', (req, res) => {
+    const { nick, score } = req.body;
+    User.findOneAndUpdate({ Nick: nick, Score: { $lt: score } }, { Score: score }, { new: true })
+    .then(updatedUser => {
+        if (updatedUser) {
+          console.log('Zaktualizowano wynik użytkownika:', updatedUser);
+          res.sendStatus(200);
+        } else {
+          console.log('Nie zaktualizowano wyniku użytkownika, ponieważ nowy wynik jest mniejszy lub równy aktualnemu.');
+          res.sendStatus(200);
+        }
+      })
+      .catch(err => {
+        console.error('Wystąpił błąd podczas obsługi zapytania:', err);
+        res.status(500).json({ error: 'Wystąpił błąd podczas obsługi zapytania.' });
+      });
+  });
   
 
 app.listen(port, () => {

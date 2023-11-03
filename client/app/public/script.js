@@ -549,7 +549,6 @@ function handleGameOver() {
         ctx.fillText('Twój czas: ' + czas + ' s', canvas.width / 2, canvas.height / 2 + 140);
         gameOver = true;
         backgroundMusic.pause();
-
         const smallImg = new Image();
         smallImg.src = 'IMAGES/enemies/dziad.png';
         smallImg.onload = function () {
@@ -598,6 +597,20 @@ function handleGameOver() {
             ctx.drawImage(small5Img, small5ImgX, small5ImgY, small5ImgSize, small5ImgSize);
         }
     };
+    var userNick = document.getElementById("user-nick").textContent;
+    var data = {
+    nick: userNick,
+    score: score
+    };
+    if(gameOver==true){
+    axios.post('http://localhost:3001/submit-score', data)
+        .then(function (response) {
+            console.log('Dane zostały przesłane na serwer.');
+        })
+        .catch(function (error) {
+            console.error('Wystąpił błąd podczas wysyłania danych na serwer: ' + error);
+        });
+        }
 }
 
 // Dodanie nasłuchiwania na kliknięcie przycisku "Nowa gra"
