@@ -597,7 +597,7 @@ function handleGameOver() {
             ctx.drawImage(small5Img, small5ImgX, small5ImgY, small5ImgSize, small5ImgSize);
         }
     };
-    var userNick = document.getElementById("user-nick").textContent;
+    var userNick = getParameterByName("nick");
     var data = {
     nick: userNick,
     score: score
