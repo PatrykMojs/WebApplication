@@ -57,33 +57,6 @@ body {
   cursor: default;
 }
 
-/* .ProfileButton {
-  background-image: linear-gradient(
-    108.7deg,
-    rgb(91, 8, 163) 11%,
-    rgb(223, 32, 226) 88.2%
-  );
-  font-family: "Engcomica", sans-serif;
-  font-size: 2vw;
-  width: 3vw;
-  height: 3vw;
-  border: none;
-  border-radius: 50%;
-  margin-top: 1vw;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  display: block;
-}
-
-.ProfileButton:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-} */
-
 .inlineBox {
   width: 100%;
   display: flex;
@@ -124,7 +97,6 @@ body {
 }
 
 .FirstBox img:hover {
-  /* transform: rotate(360deg); */
   transform: rotate(20deg);
 }
 
@@ -140,7 +112,7 @@ body {
   transition: all 2s ease-in-out;
 }
 
-.FirstBox p:hover{
+.FirstBox p:hover {
   -webkit-text-fill-color: rgba(0, 165, 9, 1);
 }
 
@@ -162,13 +134,13 @@ body {
   box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
 }
 
-.SecondBox h2{
+.SecondBox h2 {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #000000;
   -webkit-text-fill-color: rgba(0, 165, 9, 1);
 }
 
-.optionsGame{
+.optionsGame {
   text-align: center;
   font-size: 1.1vw;
 }
@@ -191,7 +163,7 @@ body {
   box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
 }
 
-.ThirdBox h2{
+.ThirdBox h2 {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #000000;
   -webkit-text-fill-color: rgba(0, 165, 9, 1);
@@ -205,9 +177,9 @@ body {
 }
 
 .ThirdBox ul li {
-  margin-top: 1vw; /* Zmniejsz odstęp od góry */
+  margin-top: 1vw;
   text-align: center;
-  font-size: 1.7vw; /* Zmniejsz rozmiar czcionki */
+  font-size: 1.7vw;
 }
 
 .ThirdBox ul li::before {
@@ -215,8 +187,6 @@ body {
   margin-right: 0.5vw;
   font-weight: bold;
 }
-
-/* Hamburger menu */
 
 .burger-menu {
   height: 100%;
@@ -245,7 +215,6 @@ body {
   position: absolute;
   top: 5vw;
   left: 75%;
-  /* z-index: 1; */
   border-radius: 1vw;
 }
 
@@ -257,7 +226,6 @@ body {
   display: inherit;
 }
 
-/* Animacja przycisku */
 .burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(1vw, 1.5vw);
   transition: ease-out 0.2s;
@@ -279,8 +247,6 @@ body {
   transition: ease-out 0.2s;
 }
 
-/* Menu oraz elementy znajdujące się w nim */
-/* Pierwszy wiersz w menu */
 .firstRow {
   width: 100%;
   margin-top: 2vw;
@@ -295,18 +261,17 @@ body {
   margin-right: auto;
 }
 
-.NickNameProfileParagraph{
+.NickNameProfileParagraph {
   color: #fff;
   padding: 1.5vw 0;
   font-size: 2.5vw;
 }
 
-/* Drugi wiersz w menu */
 .secondRow {
   width: 100%;
 }
 
-.secondRow h3{
+.secondRow h3 {
   font-size: 2vw;
 }
 
@@ -320,8 +285,6 @@ body {
   border-radius: 2vw;
 }
 
-/* Trzeci wiersz w menu */
-
 .thirdRow {
   width: 100%;
   margin-top: 4vw;
@@ -329,11 +292,8 @@ body {
   justify-content: space-around;
 }
 
-.LogOutButton{
+.LogOutButton {
   font-family: "Engcomica", sans-serif;
-  /* font-family: 'Righteous', sans-serif; */
-  /* font-family: 'Sedgwick Ave Display', cursive; */
-  /* font-family: 'Butcherman'; */
   width: 40%;
   height: 4vw;
   font-size: 1.5vw;

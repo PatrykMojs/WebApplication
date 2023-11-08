@@ -5,11 +5,9 @@ import axios from 'axios';
 const DropDownList = () => {
   const handleLogout = async () => {
     try {
-      // Wyślij żądanie wylogowania na serwer
       const response = await axios.get('http://localhost:3001/logout');
 
       if (response.data.success) {
-        // Jeśli wylogowanie powiodło się, przekieruj użytkownika na stronę MainPage
         window.location.href = '/';
       } else {
         console.log('Błąd wylogowania');

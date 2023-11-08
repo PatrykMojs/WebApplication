@@ -37,7 +37,7 @@ const Popup = props => {
             axios.post(`http://localhost:3001/updateAbout/${nick}`, { inputValue })
                 .then(response => {
                     props.handleClose();
-                    window.location.reload(); // Odśwież stronę po aktualizacji opisu
+                    window.location.reload(); 
                 })
                 .catch(error => { });
         }

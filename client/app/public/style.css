@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Engcomica", sans-serif;
 }
 
 body {
@@ -22,6 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  font-family: "Engcomica", sans-serif;
 }
 
 #menu {
@@ -86,10 +87,18 @@ body {
 }
 
 #welcome-message {
-  font-size: 24px;
   font-weight: bold;
-  color: black;
-  margin-right: 1000px;
+  font-family: "Engcomica", sans-serif;
+  text-align: center;
+  margin-right: 0;
+  font-size: 4vw;
+  margin-top: 0.5vw;
+  margin-left: 7.5vw;
+  -webkit-text-stroke-width: 0.2vw;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+  cursor: default;
+  color: white;
 }
 
 #canvas1 {

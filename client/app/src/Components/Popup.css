@@ -1,71 +1,70 @@
-/* Popup style */
 .popup-box {
-    position: fixed;
-    background: #00000050;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-  }
-   
-  .box {
-    position: relative;
-    width: 30%;
-    margin: 0 auto;
-    height: auto;
-    max-height: 70vh;
-    margin-top: calc(100vh - 85vh - 20px);
-    background: rgba(0, 165, 9, 1);
-    border-radius: 1vw;
-    padding: 20px;
-    border: 0.2vw solid #000;
-    overflow: auto;
-    text-align: center;
-  }
-    
-  .close-icon {
-    content: 'x';
-    cursor: pointer;
-    position: fixed;
-    right: calc(35% - 30px);
-    top: calc(100vh - 85vh - 33px);
-    background: #fff;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 50%;
-    line-height: 2vw;
-    text-align: center;
-    border: 0.2vw solid #000;
-    font-size: 1.5vw;
-  }
-
-h2{
-    width: 100%;
-    font-size: 3vw;
-    text-align: center;
-    cursor: default;
-    -webkit-text-stroke-width: 0.1vw;
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-fill-color: #fff;
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
 
-.inputAboutProfile{
-    width: 70%;
-    height: 3vw;
-    margin-bottom: 1vw;
-    border: 0.2vw solid #000;
-    border-radius: 1vw;
-    transition: all 0.2s ease-in-out;
+.box {
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: rgba(0, 165, 9, 1);
+  border-radius: 1vw;
+  padding: 20px;
+  border: 0.2vw solid #000;
+  overflow: auto;
+  text-align: center;
 }
 
-.popupButtons{
+.close-icon {
+  content: "x";
+  cursor: pointer;
+  position: fixed;
+  right: calc(35% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #fff;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  line-height: 2vw;
+  text-align: center;
+  border: 0.2vw solid #000;
+  font-size: 1.5vw;
+}
+
+h2 {
+  width: 100%;
+  font-size: 3vw;
+  text-align: center;
+  cursor: default;
+  -webkit-text-stroke-width: 0.1vw;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: #fff;
+}
+
+.inputAboutProfile {
+  width: 90%;
+  height: 4vw;
+  margin-bottom: 1vw;
+  border: 0.2vw solid #000;
+  border-radius: 1vw;
+  transition: all 0.2s ease-in-out;
+}
+
+.popupButtons {
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin: 1.5vw 0;
 }
 
-.popupButtons button{
+.popupButtons button {
   width: 40%;
   height: 3vw;
   border: 0.2vw solid #000;
@@ -75,7 +74,7 @@ h2{
   transition: all 0.3s ease-in-out;
 }
 
-.popupButtons button:hover{
+.popupButtons button:hover {
   width: 41%;
   height: 3vw;
   background-color: #000;

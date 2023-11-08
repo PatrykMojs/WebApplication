@@ -30,7 +30,7 @@
 }
 
 .formBG:hover {
-  background-color: rgba(0, 165, 9, 1);
+  background-color: rgba(0, 165, 9, 0.8);
   border: solid 0.15vw black;
   -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
@@ -63,6 +63,7 @@ h1 {
   border-radius: 1vw;
   padding: 0.8vw;
   cursor: pointer;
+  color: #fff;
 }
 
 ::placeholder {

@@ -62,7 +62,7 @@ export default function RegisterPage() {
           });
     
           if (response.data.success) {
-            navigate('/'); // Używamy navigate do nawigacji
+            navigate('/'); 
           } else {
             setRegistrationError('Błąd podczas rejestracji. Spróbuj ponownie.');
           }

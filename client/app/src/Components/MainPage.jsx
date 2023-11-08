@@ -12,7 +12,6 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Sprawdź, czy użytkownik jest zalogowany na serwerze
     axios.get('http://localhost:3001/check-login').then((response) => {
       if (response.data.success) {
         const nick = response.data.nick;
@@ -20,7 +19,7 @@ export default function MainPage() {
         navigate(`/start?nick=${nick}`);
       }
     });
-  }, []); // Pobierz informacje o zalogowanym użytkowniku przy pierwszym renderowaniu komponentu
+  }, []);
 
 
   const handleLogin = async () => {
@@ -36,10 +35,12 @@ export default function MainPage() {
         navigate(`/start?nick=${nick}`);
       } else {
         setLoginError('Błąd logowania. Spróbuj ponownie.');
+        alert('Błąd logowania. Spróbuj ponownie.');
       }
     } catch (error) {
       console.error(error);
       setLoginError('Błąd logowania. Spróbuj ponownie.');
+      alert('Błąd logowania. Spróbuj ponownie.');
     }
   };
 
@@ -52,9 +53,7 @@ export default function MainPage() {
       <div className="form_element_login">
         <div className="formBG">
           <form>
-            <h1>Zaloguj się!</h1>
-
-            {LoginError && <p className="login-error">{LoginError}</p>}
+            <h1>Logowanie!</h1>
 
             <div className="values">
               <label>
