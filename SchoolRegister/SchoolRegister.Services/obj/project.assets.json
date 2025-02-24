@@ -48,8 +48,8 @@
     },
     "SchoolRegister.Model/1.0.0": {
       "type": "project",
-      "path": "../SchoolRegister.MODEL/SchoolRegister.Model.csproj",
-      "msbuildProject": "../SchoolRegister.MODEL/SchoolRegister.Model.csproj"
+      "path": "../SchoolRegister.Model/SchoolRegister.Model.csproj",
+      "msbuildProject": "../SchoolRegister.Model/SchoolRegister.Model.csproj"
     },
     "SchoolRegister.ViewModels/1.0.0": {
       "type": "project",
@@ -94,8 +94,8 @@
             "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.DAL\\SchoolRegister.DAL.csproj": {
               "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.DAL\\SchoolRegister.DAL.csproj"
             },
-            "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {
-              "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj"
+            "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {
+              "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj"
             },
             "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.ViewModels\\SchoolRegister.ViewModels.csproj": {
               "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.ViewModels\\SchoolRegister.ViewModels.csproj"

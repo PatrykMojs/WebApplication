@@ -4,14 +4,14 @@
     "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.ViewModels\\SchoolRegister.ViewModels.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {
+    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
+        "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
         "projectName": "SchoolRegister.Model",
-        "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
+        "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
         "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\obj\\",
+        "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patry\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,8 +88,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {
-                "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj"
+              "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {
+                "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj"
               }
             }
           }
