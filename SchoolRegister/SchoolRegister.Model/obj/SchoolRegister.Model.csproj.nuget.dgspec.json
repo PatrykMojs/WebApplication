@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {}
+    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {
+    "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
+        "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
         "projectName": "SchoolRegister.Model",
-        "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
+        "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
         "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\obj\\",
+        "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patry\\AppData\\Roaming\\NuGet\\NuGet.Config",

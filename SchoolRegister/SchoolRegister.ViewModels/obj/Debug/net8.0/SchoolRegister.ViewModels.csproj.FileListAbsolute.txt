@@ -8,6 +8,7 @@ C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\Scho
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRegister.ViewModels.AssemblyInfoInputs.cache
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRegister.ViewModels.AssemblyInfo.cs
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRegister.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRegister.ViewModels.sourcelink.json
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRe.74268CC5.Up2Date
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\SchoolRegister.ViewModels.dll
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.ViewModels\obj\Debug\net8.0\refint\SchoolRegister.ViewModels.dll

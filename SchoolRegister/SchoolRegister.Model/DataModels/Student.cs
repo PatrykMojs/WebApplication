@@ -2,10 +2,10 @@ namespace SchoolRegister.Model.DataModels;
 public class Student : User
 {
     public int GroupId { get; set; }
-    public Group Group { get; set; } = null!;
+    public virtual Group Group { get; set; } = null!;
     public int ParentId { get; set; }
-    public Parent? Parent { get; set; }
-    public List<Grade> Grades { get; set; } = new List<Grade>();
+    public virtual Parent? Parent { get; set; }
+    public virtual List<Grade> Grades { get; set; } = new List<Grade>();
 
     public double AverageGrade => Grades.Any() ? Grades.Average(g => (int)g.GradeValue) : 0;
 

@@ -713,8 +713,8 @@
     },
     "SchoolRegister.Model/1.0.0": {
       "type": "project",
-      "path": "../SchoolRegister.Model/SchoolRegister.Model.csproj",
-      "msbuildProject": "../SchoolRegister.Model/SchoolRegister.Model.csproj"
+      "path": "../SchoolRegister.MODEL/SchoolRegister.Model.csproj",
+      "msbuildProject": "../SchoolRegister.MODEL/SchoolRegister.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -749,8 +749,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj": {
-              "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj"
+            "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj": {
+              "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj"
             }
           }
         }

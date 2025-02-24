@@ -12,6 +12,7 @@ C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\Scho
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRegister.Services.AssemblyInfoInputs.cache
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRegister.Services.AssemblyInfo.cs
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRegister.Services.csproj.CoreCompileInputs.cache
+C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRegister.Services.sourcelink.json
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRe.F76B329C.Up2Date
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\SchoolRegister.Services.dll
 C:\Users\patry\OneDrive\Pulpit\SchoolRegister\WebApplication\SchoolRegister\SchoolRegister.Services\obj\Debug\net8.0\refint\SchoolRegister.Services.dll
