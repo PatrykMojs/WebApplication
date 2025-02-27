@@ -1,0 +1,26 @@
+@model SchoolRegister.ViewModels.VM.StudentVm
+
+@{
+    ViewData["Title"] = "Szczegóły Studenta";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white text-center">
+            <h3>📄 Szczegóły Studenta</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">👤 Imię i Nazwisko:</dt>
+                <dd class="col-sm-8">@Model.FirstName @Model.LastName</dd>
+
+                <dt class="col-sm-4">🏫 Grupa:</dt>
+                <dd class="col-sm-8">@Model.GroupName</dd>
+
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/Student" class="btn btn-secondary">⬅ Powrót</a>
+        </div>
+    </div>
+</div>

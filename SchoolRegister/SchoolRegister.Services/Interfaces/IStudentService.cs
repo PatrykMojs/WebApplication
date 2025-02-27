@@ -8,5 +8,8 @@ namespace SchoolRegister.Services.Interfaces
     {
         StudentVm GetStudent(Expression<Func<Student, bool>> filterPredicate);
         IEnumerable<StudentVm> GetStudents(Expression<Func<Student, bool>> filterPredicate = null);
+        GradesReportVm GetGradesReport(GetGradesReportVm getGradesVm);
+        StudentVm AttachStudentToGroup(AttachDetachStudentToGroupVm attachStudentToGroupVm); 
+        void UpdateStudent(StudentVm studentVm);
     }
 }

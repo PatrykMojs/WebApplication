@@ -1,0 +1,34 @@
+@model SchoolRegister.ViewModels.VM.StudentVm
+
+@{
+    ViewData["Title"] = "Edytuj Studenta";
+}
+
+<div class="container mt-5">
+    <h2>✏️ Edytuj Studenta</h2>
+    
+    <form asp-action="Edit" asp-controller="Student" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">Imię</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Nazwisko</label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="GroupId" class="form-label">Grupa</label>
+            <input asp-for="GroupId" type="number" class="form-control" />
+            <span asp-validation-for="GroupId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">💾 Zapisz</button>
+        <a asp-action="Index" class="btn btn-secondary">🔙 Powrót</a>
+    </form>
+</div>

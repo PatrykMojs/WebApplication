@@ -1,0 +1,52 @@
+@model IEnumerable<SchoolRegister.ViewModels.VM.StudentVm>
+
+@{
+    ViewData["Title"] = "Lista Studentów";
+}
+
+<h2 class="text-center mt-4">📚 Lista Studentów</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>👩‍🎓 Lista Studentów</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Imię i Nazwisko</th>
+                        <th>Grupa</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var student in Model)
+                        {
+                            <tr>
+                                <td>@student.Id</td>
+                                <td>@student.FirstName @student.LastName</td>
+                                <td>@(student.GroupName ?? "Brak grupy")</td>
+                                <td>
+                                    <a href="/Student/Details/@student.Id" class="btn btn-info btn-sm">📄 Szczegóły</a>
+                                    @* <a href="/Student/Edit/@student.Id" class="btn btn-warning btn-sm">✏️ Edytuj</a> *@
+                                     <a asp-controller="Student" asp-action="Edit" asp-route-id="@student.Id" class="btn btn-warning btn-sm">✏️ Edytuj</a>
+                                    <a href="/Student/Delete/@student.Id" class="btn btn-danger btn-sm" onclick="return confirm('Czy na pewno chcesz usunąć tego studenta?')">🗑️ Usuń</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">Brak studentów do wyświetlenia.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -8,9 +8,8 @@ using SchoolRegister.DAL.EF;
 using SchoolRegister.Model.DataModels;
 using SchoolRegister.ViewModels.VM;
 using SchoolRegister.Services.Interfaces;
-using SchoolRegister.Services.ConcreteServices;
 
-namespace SchoolRegister.Services
+namespace SchoolRegister.Services.ConcreteServices
 {
     public class GradeService : BaseService, IGradeService
     {
