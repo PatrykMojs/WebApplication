@@ -1,0 +1,53 @@
+@model IEnumerable<SchoolRegister.ViewModels.VM.GroupVm>
+
+@{
+    ViewData["Title"] = "Lista Klas";
+}
+
+<h2 class="text-center mt-4">🏫 Lista Klas</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>🏫 Klasy</h4>
+        </div>
+        <div class="card-body">
+            <a asp-controller="Group" asp-action="AddOrUpdateGroup" class="btn btn-success mb-3">➕ Dodaj nową klasę</a>
+
+            <table class="table table-hover table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nazwa klasy</th>
+                        <th>Ilość uczniów</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var group in Model)
+                        {
+                            <tr>
+                                <td>@group.Id</td>
+                                <td>@group.Name</td>
+                                <td>@group.StudentCount</td>
+                                <td>
+                                    <a asp-controller="Group" asp-action="Edit" asp-route-id="@group.Id" class="btn btn-warning btn-sm">✏️ Edytuj</a>
+                                    <a asp-controller="Group" asp-action="AttachStudentToGroup" asp-route-groupId="@group.Id" class="btn btn-primary btn-sm">👨‍🎓 Przypisz Uczniów</a>
+                                    <a asp-controller="Group" asp-action="Delete" asp-route-id="@group.Id" class="btn btn-danger btn-sm" onclick="return confirm('Czy na pewno chcesz usunąć tę klasę?')">🗑️ Usuń</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Brak klas do wyświetlenia.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

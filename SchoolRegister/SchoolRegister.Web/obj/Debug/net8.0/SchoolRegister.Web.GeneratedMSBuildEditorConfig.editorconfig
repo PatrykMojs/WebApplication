@@ -46,16 +46,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AddOrUpdate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQWRkT3JVcGRhdGUuY3NodG1s
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AddOrUpdateGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQWRkT3JVcGRhdGVHcm91cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AttachStudent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQXR0YWNoU3R1ZGVudC5jc2h0bWw=
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AttachStudentToGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQXR0YWNoU3R1ZGVudFRvR3JvdXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AttachSubject.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQXR0YWNoU3ViamVjdC5jc2h0bWw=
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/Index.cshtml]
@@ -70,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Parent/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Student/AttachToGroup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxBdHRhY2hUb0dyb3VwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Student/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Student/Details.cshtml]
@@ -98,8 +106,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Subject/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Subject/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Teacher/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Teacher/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Teacher/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Teacher/Index.cshtml]

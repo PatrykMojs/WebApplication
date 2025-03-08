@@ -1,0 +1,38 @@
+@model SchoolRegister.ViewModels.VM.CreateStudentVm
+
+@{
+    ViewData["Title"] = "Dodaj nowego studenta";
+}
+
+<h2 class="text-center mt-4">➕ Dodaj nowego studenta</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <form asp-controller="Student" asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Imię</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Podaj imię" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nazwisko</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Podaj nazwisko" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Grupa</label>
+                    <select asp-for="GroupId" asp-items="ViewBag.Groups" class="form-control">
+                        <option value="">-- Wybierz grupę --</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rodzic</label>
+                    <select asp-for="ParentId" asp-items="ViewBag.Parents" class="form-control">
+                        <option value="">-- Wybierz rodzica (opcjonalnie) --</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">✅ Dodaj studenta</button>
+                <a asp-controller="Student" asp-action="Index" class="btn btn-secondary">🔙 Powrót</a>
+            </form>
+        </div>
+    </div>
+</div>

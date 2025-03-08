@@ -13,59 +13,42 @@ namespace SchoolRegister.Services.ConcreteServices
 {
     public class SubjectService : BaseService, ISubjectService
     {
-        public SubjectService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger) 
-        :base(dbContext, mapper, logger) {}
-        public SubjectVm AddOrUpdateSubject(AddOrUpdateSubjectVm addOrUpdateVm)
+        private readonly IMapper _mapper;
+        private readonly ILogger<SubjectService> _logger;
+
+        public SubjectService(ApplicationDbContext dbContext, IMapper mapper, ILogger<SubjectService> logger)
+            : base(dbContext, mapper, logger)
         {
-            try
-            {
-                if (addOrUpdateVm == null)
-                    throw new ArgumentNullException($"View model parameter is null");
-                var subjectEntity = Mapper.Map<Subject>(addOrUpdateVm);
-                if (!addOrUpdateVm.Id.HasValue || addOrUpdateVm.Id == 0)
-                    DbContext.Subjects.Add(subjectEntity);
-                else
-                    DbContext.Subjects.Update(subjectEntity);
-                DbContext.SaveChanges();
-                var subjectVm = Mapper.Map<SubjectVm>(subjectEntity);
-                return subjectVm;
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, ex.Message);
-                throw;
-            }
-            }
-        public SubjectVm GetSubject(Expression<Func<Subject, bool>> filterExpression)
-        {
-            try
-            {
-                if (filterExpression == null)
-                    throw new ArgumentNullException($" FilterExpression is null");
-                var subjectEntity = DbContext.Subjects.FirstOrDefault(filterExpression);
-                var subjectVm = Mapper.Map<SubjectVm>(subjectEntity);
-                return subjectVm;
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, ex.Message);
-                throw;
-            }
+            _mapper = mapper;
+            _logger = logger;
         }
-        public IEnumerable<SubjectVm> GetSubjects(Expression<Func<Subject, bool>> filterExpression = null)
+
+        public IEnumerable<SubjectVm> GetSubjects()
         {
-            try
+            var subjects = DbContext.Subjects.ToList();
+            return _mapper.Map<IEnumerable<SubjectVm>>(subjects);
+        }
+
+        public SubjectVm GetSubject(int id)
+        {
+            var subject = DbContext.Subjects.FirstOrDefault(s => s.Id == id);
+            return _mapper.Map<SubjectVm>(subject);
+        }
+
+        public void AddSubject(SubjectVm subjectVm)
+        {
+            var subject = _mapper.Map<Subject>(subjectVm);
+            DbContext.Subjects.Add(subject);
+            DbContext.SaveChanges();
+        }
+
+        public void DeleteSubject(int id)
+        {
+            var subject = DbContext.Subjects.FirstOrDefault(s => s.Id == id);
+            if (subject != null)
             {
-                var subjectEntities = DbContext.Subjects.AsQueryable();
-                if (filterExpression != null)
-                    subjectEntities = subjectEntities.Where(filterExpression);
-                var subjectVms = Mapper.Map<IEnumerable<SubjectVm>>(subjectEntities);
-                return subjectVms;
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, ex.Message);
-                throw;
+                DbContext.Subjects.Remove(subject);
+                DbContext.SaveChanges();
             }
         }
     }

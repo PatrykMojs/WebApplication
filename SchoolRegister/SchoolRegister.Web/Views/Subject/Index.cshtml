@@ -1,0 +1,50 @@
+@model IEnumerable<SchoolRegister.ViewModels.VM.SubjectVm>
+
+@{
+    ViewData["Title"] = "Lista Przedmiotów";
+}
+
+<h2 class="text-center mt-4">📚 Lista Przedmiotów</h2
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>👩‍🎓 Lista Przedmiotów</h4>
+        </div>
+        <div class="card-body">
+            @* <a asp-controller="Teacher" asp-action="Create" class="btn btn-success">➕ Dodaj nowego nauczyciela</a> *@
+            <table class="table table-hover table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nazwa przedmiotu</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var subject in Model)
+                        {
+                            <tr>
+                                <td>@subject.Id</td>
+                                <td>@subject.Name</td>
+                                <td>
+                                    <a href="/Teacher/Details/@subject.Id" class="btn btn-info btn-sm">📄 Szczegóły</a>
+                                    <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@subject.Id" class="btn btn-warning btn-sm">✏️ Edytuj</a>
+                                    <a href="/Teacher/Delete/@subject.Id" class="btn btn-danger btn-sm" onclick="return confirm('Czy na pewno chcesz usunąć przedmiot')">🗑️ Usuń</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">Brak nauczycieli do wyświetlenia.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

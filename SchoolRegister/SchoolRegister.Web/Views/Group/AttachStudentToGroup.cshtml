@@ -1,0 +1,40 @@
+@model SchoolRegister.ViewModels.VM.AttachDetachStudentToGroupVm
+
+@{
+    ViewData["Title"] = "Przypisz uczniów do klasy";
+}
+
+<h2 class="text-center mt-4">👨‍🎓 Przypisz uczniów do klasy</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>📝 Wybierz uczniów do przypisania do klasy</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Group" asp-action="AttachStudentToGroup" method="post">
+                <input type="hidden" asp-for="GroupId" />
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">📚 Wybierz ucznia</label>
+                    <select asp-for="StudentId" class="form-select">
+                        <option value="">-- Wybierz ucznia --</option>
+                        @foreach (var student in ViewBag.Students)
+                        {
+                            <option value="@student.Id">@student.FirstName @student.LastName</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">✅ Przypisz</button>
+                    <a asp-controller="Group" asp-action="Index" class="btn btn-secondary">🔙 Powrót</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,23 +1,24 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SchoolRegister.Services.Interfaces;
 using SchoolRegister.ViewModels.VM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace SchoolRegister.Web.Controllers
 {
+    // [Authorize(Roles = "Admin")]
     [Route("Student")]
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
+        private readonly IGroupService _groupService;
+        // private readonly IParentService _parentService;
         private readonly ILogger<StudentController> _logger;
 
-        public StudentController(IStudentService studentService, ILogger<StudentController> logger)
+        public StudentController(IStudentService studentService, IGroupService groupService, ILogger<StudentController> logger)
         {
             _studentService = studentService;
+            _groupService = groupService;
             _logger = logger;
         }
 
@@ -32,6 +33,27 @@ namespace SchoolRegister.Web.Controllers
                 return View(new List<StudentVm>());
             }
             return View(students);
+        }
+
+        [HttpGet("Create")]
+        public IActionResult Create()
+        {
+            ViewBag.Groups = new SelectList(_groupService.GetGroups(), "Id", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(CreateStudentVm model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Groups = new SelectList(_groupService.GetGroups(), "Id", "Name");
+                // ViewBag.Parents = new SelectList(_parentService.GetParents(), "Id", "FullName");
+                return View(model);
+            }
+
+            _studentService.AddStudent(model);
+            return RedirectToAction("Index");
         }
 
         [HttpGet("Student/Edit/{id}")]

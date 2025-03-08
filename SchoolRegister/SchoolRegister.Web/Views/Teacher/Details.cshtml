@@ -1,0 +1,23 @@
+@model SchoolRegister.ViewModels.VM.TeacherVm
+
+@{
+    ViewData["Title"] = "Szczegóły Nauczyciela";
+}
+
+<h2 class="text-center mt-4">📄 Szczegóły Nauczyciela</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>@Model.FirstName @Model.LastName</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>ID:</strong> @Model.Id</p>
+            <p><strong>Imię i nazwisko:</strong> @Model.FirstName @Model.LastName</p>
+            <p><strong>Tytuł:</strong> @Model.Title</p>
+            <p><strong>Przedmioty:</strong> @(Model.SubjectNames.Any() ? string.Join(", ", Model.SubjectNames) : "Brak przypisanych przedmiotów")</p>
+
+            <a asp-controller="Teacher" asp-action="Index" class="btn btn-secondary">⬅ Powrót</a>
+        </div>
+    </div>
+</div>

@@ -28,6 +28,19 @@ namespace SchoolRegister.Services.ConcreteServices
             _logger = logger;
         }
 
+        public void AddStudent(CreateStudentVm studentVm)
+        {
+            var student = _mapper.Map<Student>(studentVm);
+            _dbContext.Users.Add(student);
+            _dbContext.SaveChanges();
+        }
+
+        public IEnumerable<StudentVm> GetStudents()
+        {
+            var students = _dbContext.Users.OfType<Student>().ToList();
+            return _mapper.Map<IEnumerable<StudentVm>>(students);
+        }
+
         public StudentVm GetStudent(Expression<Func<Student, bool>> filterPredicate)
         {
             var student = _dbContext.Users.OfType<Student>().FirstOrDefault(filterPredicate);

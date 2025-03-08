@@ -1,0 +1,44 @@
+@model SchoolRegister.ViewModels.VM.CreateTeacherVm
+
+@{
+    ViewData["Title"] = "Dodaj Nowego Nauczyciela";
+}
+
+<h2 class="text-center mt-4">👨‍🏫 Dodaj Nowego Nauczyciela</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Formularz Dodania Nauczyciela</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Teacher" asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label for="FirstName" class="form-label">Imię</label>
+                    <input asp-for="FirstName" class="form-control" required />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="LastName" class="form-label">Nazwisko</label>
+                    <input asp-for="LastName" class="form-control" required />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Title" class="form-label">Tytuł</label>
+                    <input asp-for="Title" class="form-control" required />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Przedmioty</label>
+                    <select asp-for="SubjectIds" class="form-select" multiple asp-items="ViewBag.Subjects"></select>
+                </div>
+
+                <button type="submit" class="btn btn-success">💾 Dodaj Nauczyciela</button>
+                <a asp-controller="Teacher" asp-action="Index" class="btn btn-secondary">↩ Powrót</a>
+            </form>
+        </div>
+    </div>
+</div>

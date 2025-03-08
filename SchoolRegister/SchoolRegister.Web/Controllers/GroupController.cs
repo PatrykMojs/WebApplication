@@ -1,50 +1,101 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolRegister.Services.Interfaces;
 using SchoolRegister.ViewModels.VM;
 
 namespace SchoolRegister.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    [ApiController]
-    [Route("api/groups")]
-    public class GroupController : ControllerBase
+    [Route("Group")]
+    public class GroupController : Controller
     {
         private readonly IGroupService _groupService;
+        private readonly IStudentService _studentService;
 
-        public GroupController(IGroupService groupService)
+        public GroupController(IGroupService groupService, IStudentService studentService)
         {
             _groupService = groupService;
+            _studentService = studentService;
         }
 
         [HttpGet]
-        public IActionResult GetAllGroups()
+        [Route("")]
+        public IActionResult Index()
         {
             var groups = _groupService.GetGroups();
-            return Ok(groups);
+
+            if (groups == null || !groups.Any())
+            {
+                return View(new List<GroupVm>());
+            }
+            return View(groups);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetGroup(int id)
+        [HttpGet]
+        [Route("AddOrUpdateGroup/{id?}")]
+        public IActionResult AddOrUpdateGroup(int? id)
         {
-            var group = _groupService.GetGroup(g => g.Id == id);
+            if (id.HasValue)
+            {
+                var groupVm = _groupService.GetGroup(g => g.Id == id.Value);
+                if (groupVm == null)
+                {
+                    return NotFound();
+                }
+                return View(groupVm);
+            }
+            return View(new AddOrUpdateGroupVm());
+        }
+
+        [HttpPost]
+        [Route("AddOrUpdateGroup")]
+        public IActionResult AddOrUpdateGroup(AddOrUpdateGroupVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                _groupService.AddOrUpdateGroup(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        [Route("AttachStudentToGroup/{groupId}")]
+        public IActionResult AttachStudentToGroup(int groupId)
+        {
+            var group = _groupService.GetGroup(g => g.Id == groupId);
             if (group == null)
-                return NotFound("Group not found.");
-            return Ok(group);
+            {
+                return NotFound("Grupa nie istnieje.");
+            }
+
+            var students = _studentService.GetStudents();
+            if (students == null)
+            {
+                students = new List<StudentVm>();
+            }
+            ViewBag.Students = students;
+
+            var model = new AttachDetachStudentToGroupVm
+            {
+                GroupId = groupId
+            };
+
+            return View(model);
         }
 
-        [HttpPost("add-subject")]
-        public IActionResult AttachSubjectToGroup([FromBody] AttachDetachSubjectGroupVm model)
+        [HttpPost]
+        [Route("AttachStudentToGroup")]
+        public IActionResult AttachStudentToGroup(AttachDetachStudentToGroupVm model)
         {
-            var group = _groupService.AttachSubjectToGroup(model);
-            return Ok(group);
-        }
+            if (ModelState.IsValid)
+            {
+                _groupService.AttachStudentToGroup(model);
+                return RedirectToAction("Index");
+            }
 
-        [HttpPost("remove-subject")]
-        public IActionResult DetachSubjectFromGroup([FromBody] AttachDetachSubjectGroupVm model)
-        {
-            var group = _groupService.DetachSubjectFromGroup(model);
-            return Ok(group);
+            var students = _studentService.GetStudents().Where(s => s.GroupName == null).ToList();
+            ViewBag.Students = students;
+
+            return View(model);
         }
     }
 }

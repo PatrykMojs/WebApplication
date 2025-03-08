@@ -7,7 +7,10 @@ namespace SchoolRegister.Services.Interfaces
     public interface ITeacherService
     {
         TeacherVm GetTeacher(Expression<Func<Teacher, bool>> filterPredicate);
-        IEnumerable<TeacherVm> GetTeachers(Expression<Func<Teacher, bool>> filterPredicate = null);
+        IEnumerable<TeacherVm> GetTeachers();
         IEnumerable<GroupVm> GetTeachersGroups(TeachersGroupsVm getTeachersGroups);
+        void AddTeacher(CreateTeacherVm teacherVm);
+        void UpdateTeacher(TeacherVm teacherVm);
+        void DeleteTeacher(int teacherId);
     }
 }
