@@ -31,10 +31,10 @@
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
+                @* <div class="mb-3">
                     <label class="form-label">Przedmioty</label>
                     <select asp-for="SubjectIds" class="form-select" multiple asp-items="ViewBag.Subjects"></select>
-                </div>
+                </div> *@
 
                 <button type="submit" class="btn btn-success">💾 Dodaj Nauczyciela</button>
                 <a asp-controller="Teacher" asp-action="Index" class="btn btn-secondary">↩ Powrót</a>

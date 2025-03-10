@@ -8,7 +8,7 @@ namespace SchoolRegister.Services.Interfaces
     {
         IEnumerable<SubjectVm> GetSubjects();
         SubjectVm GetSubject(int id);
-        void AddSubject(SubjectVm subject);
+        void AddSubject(CreateSubjectVm subject);
         void DeleteSubject(int id);
     }
 }

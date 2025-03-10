@@ -13,42 +13,49 @@ namespace SchoolRegister.Services.ConcreteServices
 {
     public class SubjectService : BaseService, ISubjectService
     {
+        private readonly ApplicationDbContext _dbContext;
         private readonly IMapper _mapper;
         private readonly ILogger<SubjectService> _logger;
 
         public SubjectService(ApplicationDbContext dbContext, IMapper mapper, ILogger<SubjectService> logger)
             : base(dbContext, mapper, logger)
         {
+            _dbContext = dbContext;
             _mapper = mapper;
             _logger = logger;
         }
 
         public IEnumerable<SubjectVm> GetSubjects()
         {
-            var subjects = DbContext.Subjects.ToList();
+            var subjects = _dbContext.Subjects.ToList();
             return _mapper.Map<IEnumerable<SubjectVm>>(subjects);
         }
 
         public SubjectVm GetSubject(int id)
         {
-            var subject = DbContext.Subjects.FirstOrDefault(s => s.Id == id);
+            var subject = _dbContext.Subjects.FirstOrDefault(s => s.Id == id);
             return _mapper.Map<SubjectVm>(subject);
         }
 
-        public void AddSubject(SubjectVm subjectVm)
+        public void AddSubject(CreateSubjectVm subjectVm)
         {
+            if (subjectVm.TeacherId == null || !_dbContext.Users.OfType<Teacher>().Any(t => t.Id == subjectVm.TeacherId))
+            {
+                throw new ArgumentException("Podany nauczyciel nie istnieje w bazie danych.");
+            }
+            
             var subject = _mapper.Map<Subject>(subjectVm);
-            DbContext.Subjects.Add(subject);
-            DbContext.SaveChanges();
+            _dbContext.Subjects.Add(subject);
+            _dbContext.SaveChanges();
         }
 
         public void DeleteSubject(int id)
         {
-            var subject = DbContext.Subjects.FirstOrDefault(s => s.Id == id);
+            var subject = _dbContext.Subjects.FirstOrDefault(s => s.Id == id);
             if (subject != null)
             {
-                DbContext.Subjects.Remove(subject);
-                DbContext.SaveChanges();
+                _dbContext.Subjects.Remove(subject);
+                _dbContext.SaveChanges();
             }
         }
     }

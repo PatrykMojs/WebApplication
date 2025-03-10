@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using SchoolRegister.Services.Interfaces;
 using SchoolRegister.ViewModels.VM;
 
@@ -31,13 +32,15 @@ namespace SchoolRegister.Web.Controllers
         [Route("Create")]
         public IActionResult Create()
         {
-            ViewBag.Teachers = new SelectList(_teacherService.GetTeachers(), "Id", "FullName");
-            return View();
+            var teachers = _teacherService.GetTeachers();
+            ViewBag.Teachers = new SelectList(teachers, "Id", "FullName");
+            
+            return View(new CreateSubjectVm());
         }
 
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create(SubjectVm model)
+        public IActionResult Create(CreateSubjectVm model)
         {
             if (ModelState.IsValid)
             {

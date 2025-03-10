@@ -1,0 +1,36 @@
+@model SchoolRegister.ViewModels.VM.CreateSubjectVm
+
+@{
+    ViewData["Title"] = "Dodaj Przedmiot";
+}
+
+<h2 class="text-center mt-4">📚 Dodaj Nowy Przedmiot</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-success text-white text-center">
+            <h4>➕ Nowy Przedmiot</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Subject" asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label>Nazwa przedmiotu</label>
+                    <input asp-for="Name" class="form-control" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TeacherId">Nauczyciel</label>
+                    <select asp-for="TeacherId" asp-items="ViewBag.Teachers" class="form-control">
+                        <option value="">-- Wybierz nauczyciela --</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">💾 Zapisz</button>
+                <a asp-controller="Subject" asp-action="Index" class="btn btn-secondary">⬅ Anuluj</a>
+            </form>
+        </div>
+    </div>
+</div>

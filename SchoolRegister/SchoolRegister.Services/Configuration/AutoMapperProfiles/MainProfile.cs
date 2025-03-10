@@ -11,6 +11,8 @@ public class MainProfile : Profile
             .ForMember(dest => dest.Groups, x => x.MapFrom(src => src.SubjectGroups.Select(y => y.Group)));
 
         CreateMap<AddOrUpdateSubjectVm, Subject>();
+        CreateMap<Subject, SubjectVm>().ReverseMap();
+        CreateMap<CreateSubjectVm, Subject>();
 
         CreateMap<Group, GroupVm>()
             .ForMember(dest => dest.StudentCount, opt => opt.MapFrom(src => src.Students.Count));

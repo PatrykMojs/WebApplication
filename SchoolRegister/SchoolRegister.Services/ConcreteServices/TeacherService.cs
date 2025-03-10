@@ -37,7 +37,6 @@ namespace SchoolRegister.Services.ConcreteServices
             if (filterPredicate == null)
                 throw new ArgumentNullException(nameof(filterPredicate));
 
-            // var teacher = _dbContext.Users.OfType<Teacher>().FirstOrDefault(filterPredicate);
             var teacher = _dbContext.Users.OfType<Teacher>()
                 .Where(filterPredicate)
                 .Select(t => new TeacherVm{
@@ -105,7 +104,6 @@ namespace SchoolRegister.Services.ConcreteServices
             _dbContext.SaveChanges();
         }
 
-
         public void DeleteTeacher(int teacherId)
         {
             var teacher = _dbContext.Users.OfType<Teacher>().FirstOrDefault(t => t.Id == teacherId);
@@ -115,7 +113,5 @@ namespace SchoolRegister.Services.ConcreteServices
                 _dbContext.SaveChanges();
             }
         }
-
-
     }
 }
