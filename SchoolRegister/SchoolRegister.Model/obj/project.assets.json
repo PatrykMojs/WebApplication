@@ -710,11 +710,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
+      "projectUniqueName": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
       "projectName": "SchoolRegister.Model",
-      "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\SchoolRegister.Model.csproj",
+      "projectPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\SchoolRegister.Model.csproj",
       "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.MODEL\\obj\\",
+      "outputPath": "C:\\Users\\patry\\OneDrive\\Pulpit\\SchoolRegister\\WebApplication\\SchoolRegister\\SchoolRegister.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\patry\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -769,7 +769,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.309/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.310/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

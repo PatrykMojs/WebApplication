@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SchoolRegister.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06662b3467cacb64c8812405b921ba463e6093ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64e13a6a501850e7d366338b3832e99daae48c93")]
 [assembly: System.Reflection.AssemblyProductAttribute("SchoolRegister.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SchoolRegister.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

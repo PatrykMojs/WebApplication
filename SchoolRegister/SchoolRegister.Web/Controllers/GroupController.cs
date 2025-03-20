@@ -9,11 +9,13 @@ namespace SchoolRegister.Web.Controllers
     {
         private readonly IGroupService _groupService;
         private readonly IStudentService _studentService;
+        private readonly ISubjectService _subjectService;
 
-        public GroupController(IGroupService groupService, IStudentService studentService)
+        public GroupController(IGroupService groupService, IStudentService studentService, ISubjectService subjectService)
         {
             _groupService = groupService;
             _studentService = studentService;
+            _subjectService = subjectService;
         }
 
         [HttpGet]
@@ -83,8 +85,9 @@ namespace SchoolRegister.Web.Controllers
         }
 
         [HttpPost]
-        [Route("AttachStudentToGroup")]
-        public IActionResult AttachStudentToGroup(AttachDetachStudentToGroupVm model)
+        [Route("AssignStudents")]
+        [ValidateAntiForgeryToken]
+        public IActionResult AssignStudents(AttachDetachStudentToGroupVm model)
         {
             if (ModelState.IsValid)
             {
@@ -92,10 +95,76 @@ namespace SchoolRegister.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            var students = _studentService.GetStudents().Where(s => s.GroupName == null).ToList();
-            ViewBag.Students = students;
+            ViewBag.Students = _studentService.GetStudents().Where(s => s.GroupName == null).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Delete/{id}")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _groupService.DeleteGroup(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Nie można usunąć tej klasy, ponieważ są do niej przypisani uczniowie.";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        [Route("AssignSubject/{groupId}")]
+        public IActionResult AssignSubject(int groupId)
+        {
+            var group = _groupService.GetGroup(g => g.Id == groupId);
+            if (group == null)
+            {
+                return NotFound("Grupa nie istnieje.");
+            }
+
+            var subjects = _subjectService.GetSubjects();
+            ViewBag.Subjects = subjects;
+
+            var model = new AssignSubjectToGroupVm
+            {
+                GroupId = groupId
+            };
 
             return View(model);
+        }
+
+        [HttpPost]
+        [Route("AssignSubject")]
+        [ValidateAntiForgeryToken]
+        public IActionResult AssignSubject(AssignSubjectToGroupVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                _groupService.AssignSubjectToGroup(model);
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Subjects = _subjectService.GetSubjects();
+            return View(model);
+        }
+
+        [HttpGet]
+        [Route("Students/{id}")]
+        public IActionResult Students(int id)
+        {
+            var group = _groupService.GetGroup(g => g.Id == id);
+            if (group == null)
+            {
+                return NotFound("Grupa nie istnieje.");
+            }
+
+            var students = _studentService.GetStudents(s => s.GroupId == id);
+            ViewBag.GroupName = group.Name;
+            return View(students);
         }
     }
 }

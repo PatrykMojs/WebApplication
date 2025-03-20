@@ -1,0 +1,33 @@
+@model SchoolRegister.ViewModels.VM.AssignSubjectToGroupVm
+
+@{
+    ViewData["Title"] = "Przypisz Przedmiot do Klasy";
+}
+
+<h2 class="text-center mt-4">📚 Przypisz Przedmiot do Klasy</h2>
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Przypisanie przedmiotu</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Group" asp-action="AssignSubject" method="post">
+                <input type="hidden" name="GroupId" value="@Model.GroupId" />
+
+                <div class="form-group">
+                    <label for="SubjectId">Wybierz przedmiot</label>
+                    <select name="SubjectId" class="form-control">
+                        @foreach (var subject in ViewBag.Subjects)
+                        {
+                            <option value="@subject.Id">@subject.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">✅ Przypisz</button>
+                <a asp-controller="Group" asp-action="Index" class="btn btn-secondary">🔙 Powrót</a>
+            </form>
+        </div>
+    </div>
+</div>

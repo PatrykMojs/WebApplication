@@ -69,5 +69,46 @@ namespace SchoolRegister.Services.ConcreteServices
             var students = _dbContext.Users.OfType<Student>().Where(s => s.GroupId == null).ToList();
             return _mapper.Map<IEnumerable<StudentVm>>(students);
         }
+
+        public void AssignSubjectToGroup(AssignSubjectToGroupVm model)
+        {
+            var group = _dbContext.Groups.FirstOrDefault(g => g.Id == model.GroupId);
+            var subject = _dbContext.Subjects.FirstOrDefault(s => s.Id == model.SubjectId);
+
+            if (group == null || subject == null)
+            {
+                throw new ArgumentException("Nieprawidłowa grupa lub przedmiot.");
+            }
+
+            var subjectGroup = new SubjectGroup
+            {
+                GroupId = group.Id,
+                SubjectId = subject.Id
+            };
+
+            _dbContext.SubjectGroups.Add(subjectGroup);
+            _dbContext.SaveChanges();
+        }
+
+
+        public void DeleteGroup(int groupId)
+        {
+            var group = _dbContext.Groups.FirstOrDefault(g => g.Id == groupId);
+            if (group == null)
+            {
+                throw new ArgumentException($"Grupa o ID {groupId} nie istnieje.");
+            }
+
+            var students = _dbContext.Users.OfType<Student>().Where(s => s.GroupId == groupId).ToList();
+            foreach (var student in students)
+            {
+                student.GroupId = 0; 
+            }
+
+            var subjectGroups = _dbContext.SubjectGroups.Where(sg => sg.GroupId == groupId).ToList();
+            _dbContext.SubjectGroups.RemoveRange(subjectGroups);
+            _dbContext.Groups.Remove(group);
+            _dbContext.SaveChanges();
+        }
     }
 }

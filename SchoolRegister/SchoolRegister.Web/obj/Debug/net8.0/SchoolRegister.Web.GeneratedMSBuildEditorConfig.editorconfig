@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQWRkT3JVcGRhdGVHcm91cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AssignSubject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQXNzaWduU3ViamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/AttachStudentToGroup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQXR0YWNoU3R1ZGVudFRvR3JvdXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,12 +66,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Group/Students.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcU3R1ZGVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Parent/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/patry/OneDrive/Pulpit/SchoolRegister/WebApplication/SchoolRegister/SchoolRegister.Web/Views/Parent/Index.cshtml]

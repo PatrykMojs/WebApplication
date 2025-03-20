@@ -12,5 +12,7 @@ namespace SchoolRegister.Services.Interfaces
         IEnumerable<GroupVm> GetGroups();
         GroupVm GetGroup(Expression<Func<Group, bool>> filterPredicate);
         IEnumerable<StudentVm> GetAvailableStudents();
+        void AssignSubjectToGroup(AssignSubjectToGroupVm model);
+        void DeleteGroup(int groupId);
     }
 }

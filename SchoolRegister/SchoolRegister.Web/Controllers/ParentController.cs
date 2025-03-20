@@ -9,10 +9,12 @@ namespace SchoolRegister.Web.Controllers
     public class ParentController : Controller
     {
         private readonly IParentService _parentService;
+         private readonly IStudentService _studentService;
 
-        public ParentController(IParentService parentService)
+        public ParentController(IParentService parentService, IStudentService studentService)
         {
             _parentService = parentService;
+            _studentService = studentService;
         }
 
         [HttpGet]
@@ -26,6 +28,37 @@ namespace SchoolRegister.Web.Controllers
                 return View(new List<ParentVm>());
             }
             return View(parents);
+        }
+
+        [HttpGet]
+        [Route("Create")]
+        public IActionResult Create()
+        {
+            var students = _studentService.GetStudents().Where(s => s.ParentId == null).ToList();
+            var model = new CreateParentVm
+            {
+                AvailableStudents = students
+            };
+
+            ViewBag.Students = students.Select(s => new { s.Id, FullName = $"{s.FirstName} {s.LastName}" });
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult Create(CreateParentVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                _parentService.AddParent(model);
+                return RedirectToAction("Index");
+            }
+
+            var students = _studentService.GetStudents().Where(s => s.ParentId == null).ToList();
+            ViewBag.Students = students.Select(s => new { s.Id, FullName = $"{s.FirstName} {s.LastName}" });
+
+            return View(model);
         }
     }
 }

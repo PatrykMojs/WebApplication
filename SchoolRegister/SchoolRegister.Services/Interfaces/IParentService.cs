@@ -9,5 +9,7 @@ namespace SchoolRegister.Services.Interfaces
     {
         ParentVm GetParent(Expression<Func<Parent, bool>> filterPredicate);
         IEnumerable<ParentVm> GetParents();
+        void AddParent(CreateParentVm parentVm);
+        List<StudentVm> GetAvailableStudents();
     }
 }
