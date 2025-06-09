@@ -1,0 +1,76 @@
+/* Reset stylów */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+/* Główne tło */
+.backgroundMainPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+/* Kontener */
+.main-container {
+  width: 80%;
+  max-width: 800px;
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+/* Nagłówek */
+.header-section {
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  font-size: 2.5rem;
+  color: #444;
+}
+
+.header-section p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Karty */
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  background: linear-gradient(to right, #fff, #f1f1f1);
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(to right, #e3e3e3, #ffffff);
+}
+
+/* Stopka */
+.footer-section {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #666;
+}

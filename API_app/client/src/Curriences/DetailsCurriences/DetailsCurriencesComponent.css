@@ -1,0 +1,106 @@
+/* 🔹 Ogólne tło */
+.backgroundDetailsCurrency {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0;
+}
+
+/* 🔹 Kontener na formularz i wykres */
+.containerFormChart {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 5vh;
+}
+
+/* 🔹 Styl formularza */
+#formCurriences {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    min-width: 300px;
+}
+
+/* 🔹 Styl etykiet */
+label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* 🔹 Styl inputów */
+input {
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #2c3e50;
+}
+
+/* 🔹 Przycisk wyszukiwania */
+button {
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* 🔹 Kontener na wykres */
+.chart-container {
+    width: 65%;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Nagłówek, jeśli brak danych */
+.detailsCurriencesh1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 20px;
+}
+
+/* 🔹 Responsywność dla ekranów mobilnych */
+@media (max-width: 900px) {
+    .containerFormChart {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formCurriences, .chart-container {
+        width: 90%;
+    }
+}
