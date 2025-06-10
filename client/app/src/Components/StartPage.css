@@ -1,0 +1,313 @@
+@import url("https://fonts.cdnfonts.com/css/engcomica");
+@import url("https://fonts.googleapis.com");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Butcherman&display=swap");
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/20252.jpg);
+  background-size: 100vw 100vh;
+  margin: none;
+  padding: none;
+  font-family: "Engcomica", sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 5vw;
+  background-color: #333;
+  color: white;
+  margin: none;
+  padding: none;
+  cursor: pointer;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.navbar li {
+  margin-right: 4vw;
+}
+
+.MenuElements {
+  margin-top: 1.5vw;
+  font-size: 3vw;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar li img {
+  width: 9vw;
+}
+
+.liMenuStyle {
+  font-size: 5vw;
+  margin-top: 0.5vw;
+  -webkit-text-stroke-width: 0.2vw;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+  cursor: default;
+}
+
+.inlineBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10vw;
+  margin-bottom: 8.6vw;
+}
+
+.FirstBox {
+  width: 25vw;
+  height: 25vw;
+  background-color: #fff;
+  border: solid 0.2vw #fff;
+  border-radius: 2vw;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.FirstBox:hover {
+  -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.FirstBox a {
+  text-decoration: none;
+}
+
+.FirstBox img {
+  width: 100%;
+  margin-top: 4vw;
+  transition: all 0.5s ease-in-out;
+}
+
+.FirstBox img:hover {
+  transform: rotate(20deg);
+}
+
+.FirstBox p {
+  width: 100%;
+  margin-top: 2vw;
+  text-align: center;
+  font-size: 2.5vw;
+  cursor: pointer;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 0.5);
+  transition: all 2s ease-in-out;
+}
+
+.FirstBox p:hover {
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+}
+
+.SecondBox {
+  width: 25vw;
+  height: 25vw;
+  background-color: #fff;
+  border: solid 0.2vw #fff;
+  border-radius: 2vw;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+.SecondBox:hover {
+  -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.SecondBox h2 {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+}
+
+.optionsGame {
+  text-align: center;
+  font-size: 1.1vw;
+}
+
+.ThirdBox {
+  width: 25vw;
+  height: 25vw;
+  background-color: #fff;
+  border: solid 0.2vw #fff;
+  border-radius: 2vw;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+.ThirdBox:hover {
+  -webkit-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 40px 18px rgba(0, 0, 0, 1);
+}
+
+.ThirdBox h2 {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000000;
+  -webkit-text-fill-color: rgba(0, 165, 9, 1);
+}
+
+.ThirdBox ul {
+  list-style-type: none;
+  font-size: 2.5vw;
+  margin: 0;
+  padding: 0;
+}
+
+.ThirdBox ul li {
+  margin-top: 1vw;
+  text-align: center;
+  font-size: 1.7vw;
+}
+
+.ThirdBox ul li::before {
+  counter-increment: player;
+  margin-right: 0.5vw;
+  font-weight: bold;
+}
+
+.burger-menu {
+  height: 100%;
+  width: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 0.5vw;
+  margin-top: 0.2vw;
+}
+
+.burger-bar {
+  width: 4vw;
+  height: 0.5vw;
+  margin: 0.5vw auto;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.menu {
+  width: 25%;
+  height: 35vw;
+  background-color: #20c763;
+  position: absolute;
+  top: 5vw;
+  left: 75%;
+  border-radius: 1vw;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inherit;
+}
+
+.burger-bar.clicked:nth-child(1) {
+  transform: rotate(45deg) translate(1vw, 1.5vw);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(2) {
+  transform: scale(0.1);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(3) {
+  transform: rotate(135deg) translate(-0.6vw, 1vw);
+  transition: ease-out 0.2s;
+}
+
+.burger-bar.unclicked {
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: ease-out 0.2s;
+}
+
+.firstRow {
+  width: 100%;
+  margin-top: 2vw;
+}
+
+.NickNameProfile {
+  width: 90%;
+  height: 5vw;
+  background-color: #000;
+  border-radius: 1.5vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NickNameProfileParagraph {
+  color: #fff;
+  padding: 1.5vw 0;
+  font-size: 2.5vw;
+}
+
+.secondRow {
+  width: 100%;
+}
+
+.secondRow h3 {
+  font-size: 2vw;
+}
+
+.secondRow p {
+  background-color: #000;
+  width: 80%;
+  font-size: 2vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5vw;
+  border-radius: 2vw;
+}
+
+.thirdRow {
+  width: 100%;
+  margin-top: 4vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.LogOutButton {
+  font-family: "Engcomica", sans-serif;
+  width: 40%;
+  height: 4vw;
+  font-size: 1.5vw;
+  border: 0.2vw solid #000;
+  border-radius: 2vw;
+}
+
+.EditButton {
+  font-family: "Engcomica", sans-serif;
+  font-size: 1.5vw;
+  width: 40%;
+  height: 4vw;
+  border: 0.2vw solid #000;
+  border-radius: 2vw;
+  background-color: #fff;
+  cursor: pointer;
+}

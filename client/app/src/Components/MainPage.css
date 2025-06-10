@@ -1,0 +1,94 @@
+@import url("https://fonts.cdnfonts.com/css/engcomica");
+
+.logoApp {
+  width: 100%;
+  text-align: center;
+}
+
+.logoApp img {
+  width: 25vw;
+  margin-top: 0.5vw;
+}
+
+.form_element_login {
+  width: 100%;
+  margin-bottom: 9vw;
+}
+
+.formBG {
+  font-family: "Engcomica", sans-serif;
+  background-color: rgba(0, 165, 9, 0.5);
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 0.2vw black;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 1);
+  transition: all 0.2s ease-in-out;
+}
+
+.formBG:hover {
+  background-color: rgba(0, 165, 9, 0.8);
+  border: solid 0.15vw black;
+  -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
+  padding: 0.2vw 0.1vw;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2vw;
+  font-size: 5vw;
+  cursor: default;
+}
+
+.values {
+  text-align: center;
+  margin-top: 3vw;
+}
+
+.values label {
+  font-size: 1.5vw;
+}
+
+.values input {
+  font-family: "Engcomica", sans-serif;
+  font-size: 1.5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  border: solid 2px #000;
+  border-radius: 1vw;
+  padding: 0.8vw;
+  cursor: pointer;
+  color: #fff;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  width: 30%;
+  background-color: #000;
+  font-family: "Engcomica", sans-serif;
+  color: #fff;
+  margin: 2vw;
+  font-size: 1.2vw;
+  border: solid 0.15vw #000;
+  border-radius: 1vw;
+  padding: 0.5vw;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttons button:hover {
+  width: 35%;
+  border: solid 0.15vw #ffffff;
+  border-radius: 1.2vw;
+}

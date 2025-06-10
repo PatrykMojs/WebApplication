@@ -1,0 +1,36 @@
+.dropdownList{
+    position: absolute;
+    top: 4.8rem;
+    right: 3.5rem;
+    width: 15vw;
+    border-radius: 1vw;
+    background-color: white;
+    border: 0.1vw solid gray;
+}
+
+.dropdownList::before{
+    content: '';
+    position: absolute;
+    top: -0.7rem;
+    right: 1.1rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: white;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+}
+
+ul{
+    list-style-type:none;
+    padding:0;
+    margin: 1vw 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.liStyle{
+    font-size: 1.5vw;
+    margin: 1vw 0;
+    
+}
