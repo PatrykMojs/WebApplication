@@ -60,6 +60,8 @@ npm start
 
 Created by Patryk Meus
 
+Website: https://patrykmojs.github.io/Portfolio/
+
 GitHub: https://github.com/PatrykMojs
 
 Email: patrykmeus@gmail.com
