@@ -1,0 +1,94 @@
+@page "{id}"
+@model GhibliApp.Client.Pages.FilmModel
+@{
+    ViewData["Title"] = Model.Film?.Title ?? "Film";
+    var score = 0;
+    int.TryParse(Model.Film?.RtScore, out score);
+}
+
+@if (Model.Film is null)
+{
+    <div class="alert alert-warning text-center">Video not found.</div>
+}
+else
+{
+    <section class="film-hero"
+             style="background-image:url('@(string.IsNullOrWhiteSpace(Model.Film.MovieBanner) ? Model.Film.Image : Model.Film.MovieBanner)')">
+        <div class="container">
+            <div class="film-hero__inner">
+                <h1 class="display-6 mb-2">@Model.Film.Title <span class="film-year">(@Model.Film.ReleaseDate)</span></h1>
+                @if(!string.IsNullOrWhiteSpace(Model.Film.OriginalTitleRomanised))
+                {
+                    <div class="hero-subtitle">@Model.Film.OriginalTitleRomanised</div>
+                }
+                <div class="hero-badges mt-3">
+                    <span class="badge pill">🎬 @Model.Film.Director</span>
+                    <span class="badge pill">🎛️ @Model.Film.Producer</span>
+                    <span class="badge pill">⏱️ @Model.Film.RunningTime min</span>
+                </div>
+                <div class="hero-actions mt-3">
+                    <a asp-page="/Films" class="btn btn-outline-light me-2">← Back to list</a>
+                    @if(!string.IsNullOrWhiteSpace(Model.Film.Url))
+                    {
+                        <a href="@Model.Film.Url" target="_blank" rel="noopener" class="btn btn-primary">Open API</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mt-4">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card poster-detail h-100">
+                    @if(!string.IsNullOrWhiteSpace(Model.Film.Image))
+                    {
+                        <img src="@Model.Film.Image" alt="@Model.Film.Title" class="card-img-top" loading="lazy" />
+                    }
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="text-muted small">RT Rating</div>
+                            <div class="fw-bold">🍅 @Model.Film.RtScore</div>
+                        </div>
+                        <div class="progress" role="progressbar" aria-valuenow="@score" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" style="width:@score%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card section-card mb-4">
+                    <div class="card-body">
+                        <h5 class="mb-3">Description</h5>
+                        <p class="lead mb-0">@Model.Film.Description</p>
+                    </div>
+                </div>
+
+                <div class="card section-card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Fast facts</h5>
+                        <div class="facts">
+                            <div class="fact">
+                                <div class="fact-label">Year</div>
+                                <div class="fact-value">@Model.Film.ReleaseDate</div>
+                            </div>
+                            <div class="fact">
+                                <div class="fact-label">Duration</div>
+                                <div class="fact-value">@Model.Film.RunningTime min</div>
+                            </div>
+                            <div class="fact">
+                                <div class="fact-label">Director</div>
+                                <div class="fact-value">@Model.Film.Director</div>
+                            </div>
+                            <div class="fact">
+                                <div class="fact-label">Producer</div>
+                                <div class="fact-value">@Model.Film.Producer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+}

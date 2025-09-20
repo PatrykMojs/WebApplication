@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="20" y1="10" x2="108" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C5CE7"/>
+      <stop offset="1" stop-color="#9B59B6"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="clipRound">
+      <rect x="8" y="8" width="112" height="112" rx="28"/>
+    </clipPath>
+  </defs>
+
+  <!-- Rounded gradient tile -->
+  <g filter="url(#softShadow)">
+    <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#grad)"/>
+    <!-- subtle inner highlight -->
+    <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#grad)" opacity="0.15"/>
+  </g>
+
+  <!-- Clapperboard icon -->
+  <g clip-path="url(#clipRound)">
+    <!-- body -->
+    <rect x="28" y="58" width="72" height="46" rx="8" fill="#FFFFFF" fill-opacity="0.96"/>
+    <!-- top bar -->
+    <g transform="rotate(-8 34 46)">
+      <rect x="22" y="40" width="84" height="18" rx="6" fill="#FFFFFF" fill-opacity="0.96"/>
+      <!-- diagonal stripes -->
+      <g opacity="0.35">
+        <rect x="28" y="42" width="14" height="14" transform="rotate(-8 28 42)" fill="#6C5CE7"/>
+        <rect x="48" y="42" width="14" height="14" transform="rotate(-8 48 42)" fill="#6C5CE7"/>
+        <rect x="68" y="42" width="14" height="14" transform="rotate(-8 68 42)" fill="#6C5CE7"/>
+      </g>
+    </g>
+
+    <!-- small sparkles -->
+    <g fill="#FFFFFF" fill-opacity="0.9">
+      <path d="M101 32l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z" opacity="0.6"/>
+      <circle cx="92" cy="30" r="2" opacity="0.7"/>
+    </g>
+  </g>
+</svg>

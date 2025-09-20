@@ -1,0 +1,34 @@
+@page
+@model GhibliApp.Client.Pages.GalleryModel
+@{
+    ViewData["Title"] = "Ghibli Gallery";
+}
+
+@if(Model.Films is { Count: > 0 })
+{
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
+        @foreach (var film in Model.Films)
+        {
+            <div class="col">
+                <a href="/Film/@film.Id" class="poster-link">
+                    <div class="poster-card">
+                        @if(!string.IsNullOrEmpty(film.Image))
+                        {
+                            <img src="@film.Image" class="poster-img" alt="@film.Title" loading="lazy">
+                        }
+                        <div class="poster-overlay">
+                            <div class="poster-text">
+                                <strong>@film.Title</strong><br />
+                                <small>@film.Director</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info">Loading posters…</div>
+}

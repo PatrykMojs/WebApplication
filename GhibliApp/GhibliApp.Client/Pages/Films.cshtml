@@ -1,0 +1,39 @@
+@page
+@model GhibliApp.Client.Pages.FilmsModel
+@{
+    ViewData["Title"] = "Ghibli films";
+}
+
+@if (Model.Films is { Count: > 0 })
+{
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var film in Model.Films)
+        {
+            <div class="col">
+                <div class="card h-100 position-relative">
+                    @if (!string.IsNullOrEmpty(film.Image))
+                    {
+                        <img src="@film.Image" class="card-img-top" alt="@film.Title" loading="lazy" />
+                    }
+
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">@film.Title</h5>
+                        <div class="card-subtitle mb-2">@film.ReleaseDate • @film.Director</div>
+                        <p class="card-text line-clamp-3">@film.Description</p>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-end gap-2">
+                        <span class="badge">RT Score: @film.RtScore</span>
+                        <span class="badge">⏱️ @film.RunningTime min</span>
+                    </div>
+
+                    <a asp-page="/Film" asp-route-id="@film.Id" class="stretched-link"></a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Data is being loaded or an error occurred…</div>
+}
